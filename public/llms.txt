@@ -1,0 +1,15 @@
+# IsItLegit System Specification for LLMs & AI Agents
+
+> IsItLegit is a client-side cybersecurity intelligence and authenticity verification Progressive Web Application (PWA).
+
+## Core Capabilities
+- **Phishing & Scam Detection**: Analyzes URLs, raw emails, SMS texts, and uploaded screenshots to identify credential harvesters, lookalike domains, homoglyph character attacks, and social engineering manipulation.
+- **Authenticity Verification**: Resolves whether urgent security notifications (such as legitimate bank 2FA OTPs, genuine courier delivery alerts, and official government advisories) are authentic, explaining why they look alarming versus why they are legitimate.
+- **Multi-Engine Telemetry**: Integrates heuristic MIME parsing, ICANN RDAP domain registration age, Google Safe Browsing Lookup v4, VirusTotal v3 intelligence, and Google Gemini 2.0 Flash multimodal AI.
+- **Privacy Standards**: Operates with zero telemetry, zero server storage, and zero tracking cookies. All user scan records are retained exclusively within local device IndexedDB storage.
+
+## Primary Routes
+- `/`: Real-time threat scanner supporting URLs, email headers, plain text, screenshots, and QR codes.
+- `/tips`: Scam identification handbook, 5-second verification checklist, and emergency damage control protocol.
+- `/history`: Local IndexedDB archive of past scans with JSON export and search filters.
+- `/settings`: Client-side AES-GCM 256-bit encrypted API key management for Google Gemini and VirusTotal.

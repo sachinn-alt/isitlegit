@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  IsItLegit Serverless Backend
+  AWS Lambda + Amazon Bedrock API for AI-powered phishing and scam detection.
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 512
+    Runtime: nodejs20.x
+
+Resources:
+  IsItLegitScanApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Cors:
+        AllowMethods: "'POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,Authorization'"
+        AllowOrigin: "'*'"
+
+  ScanFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: backend/lambda/
+      Handler: scan-handler.handler
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource: '*'
+      Events:
+        ScanApiEvent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref IsItLegitScanApi
+            Path: /scan
+            Method: post
+
+Outputs:
+  ScanApiEndpoint:
+    Description: "API Gateway endpoint URL for IsItLegit Scan Function"
+    Value: !Sub "https://${IsItLegitScanApi}.execute-api.${AWS::Region}.amazonaws.com/prod/scan"

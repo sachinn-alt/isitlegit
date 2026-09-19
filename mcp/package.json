@@ -1,0 +1,13 @@
+{
+  "name": "isitlegit-mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) Server for IsItLegit Scam, Phishing, and Authenticity Verification",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0"
+  }
+}
