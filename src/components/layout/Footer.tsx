@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
   Lock,
-  Star,
   Mail,
   ExternalLink,
   Globe,
@@ -35,10 +34,9 @@ export const Footer = () => {
               href="https://github.com/sachinn-alt/isitlegit"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#F0C020] hover:underline"
+              className="text-[#C0C0C0] hover:text-white hover:underline"
             >
-              <Star className="w-3.5 h-3.5 fill-[#F0C020]" />
-              <span>STAR ON GITHUB</span>
+              SOURCE CODE
             </a>
 
             <span className="text-[#62666D]">•</span>
@@ -276,10 +274,10 @@ export const Footer = () => {
                 href="https://github.com/sachinn-alt/isitlegit"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 bg-[#D02020] hover:bg-[#b01818] text-white font-black text-xs uppercase tracking-wider border border-white shadow-[2px_2px_0px_0px_white] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
+                className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 bg-[#1A1D21] hover:bg-[#2A2D32] text-white font-bold text-xs uppercase tracking-wider border border-[#383B3F] transition-all"
               >
-                <Star className="w-3.5 h-3.5 fill-[#F0C020] text-[#F0C020]" />
-                <span>STAR ON GITHUB</span>
+                <Code2 className="w-3.5 h-3.5" />
+                <span>REPOSITORY (MIT)</span>
               </a>
             </div>
           </div>
@@ -287,70 +285,45 @@ export const Footer = () => {
 
         {/* Bottom Bar: Copyright & Attribution */}
         <div className="border-t-2 border-[#2A2D32] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A0A0A0]">
-          <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
-            <span>© 2026 IsItLegit. Form Follows Function. MIT License.</span>
-            <span className="hidden sm:inline text-[#62666D]">•</span>
-            <span>
-              Engineered by{' '}
-              <a
-                href="https://github.com/sachinn-alt"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[#F0C020] hover:underline font-bold"
-              >
-                Sachin Kumar Singh (@sachinn-alt)
-              </a>
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 font-bold uppercase tracking-wider">
+          <p className="text-center sm:text-left">
+            © 2026 IsItLegit • Engineered by{' '}
             <a
               href="https://github.com/sachinn-alt"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-white hover:text-[#F0C020] transition-colors"
+              className="text-[#F0C020] hover:underline font-bold"
             >
-              <GithubIcon className="w-3.5 h-3.5" />
-              <span>GitHub</span>
-            </a>
+              Sachin Kumar Singh (@sachinn-alt)
+            </a>{' '}
+            • MIT License
+          </p>
 
+          <div className="flex items-center gap-4 text-xs font-mono">
+            <a
+              href="https://github.com/sachinn-alt"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+            <span className="text-[#383B3F]">•</span>
             <a
               href="https://www.linkedin.com/in/heyitsachin/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-white hover:text-[#64B5F6] transition-colors"
+              className="hover:text-[#64B5F6] transition-colors"
             >
-              <LinkedinIcon className="w-3.5 h-3.5" />
-              <span>LinkedIn</span>
+              LinkedIn
             </a>
-
+            <span className="text-[#383B3F]">•</span>
             <a
               href="https://www.instagram.com/sac._.hinn/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-white hover:text-[#E1306C] transition-colors"
+              className="hover:text-[#E1306C] transition-colors"
             >
-              <InstagramIcon className="w-3.5 h-3.5" />
-              <span>Instagram</span>
-            </a>
-
-            <a
-              href="https://github.com/sachinn-alt/isitlegit"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#F0C020] hover:underline"
-            >
-              <Star className="w-3.5 h-3.5 fill-[#F0C020] text-[#F0C020]" />
-              <span>Star Repo</span>
-            </a>
-
-            <a
-              href="https://sachinn-alt.github.io/isitlegit/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-[#D02020] hover:underline"
-            >
-              Live App
+              Instagram
             </a>
           </div>
         </div>

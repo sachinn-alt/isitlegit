@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, BookOpen, History, Settings as SettingsIcon, Download, KeyRound, Star } from 'lucide-react';
+import { Shield, BookOpen, History, Settings as SettingsIcon, Download, KeyRound } from 'lucide-react';
 import { GithubIcon } from '@/components/common/GithubIcon';
 import { usePWA } from '@/hooks/usePWA';
 import { useSettings } from '@/hooks/useSettings';
@@ -37,9 +37,6 @@ export const Header = () => {
           <div className="flex items-baseline gap-2">
             <span className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-[#121212]">
               IsItLegit
-            </span>
-            <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-[#121212] text-white rounded-none border border-[#121212]">
-              BAUHAUS 4.2
             </span>
           </div>
         </Link>
@@ -90,17 +87,16 @@ export const Header = () => {
             </button>
           )}
 
-          {/* GitHub Star Button */}
+          {/* GitHub Link */}
           <a
             href="https://github.com/sachinn-alt/isitlegit"
             target="_blank"
             rel="noopener noreferrer"
-            title="Star IsItLegit on GitHub (Developed by sachinn-alt)"
+            title="GitHub Repository"
             className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-none bg-white hover:bg-[#F0C020] text-[#121212] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] text-xs font-black uppercase tracking-wider transition-all cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
           >
             <GithubIcon className="w-3.5 h-3.5 text-[#121212]" />
-            <span className="hidden xs:inline">STAR</span>
-            <Star className="w-3.5 h-3.5 text-[#121212] fill-[#F0C020]" />
+            <span className="hidden xs:inline">GITHUB</span>
           </a>
         </div>
       </div>
