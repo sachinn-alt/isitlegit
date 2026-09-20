@@ -1,18 +1,22 @@
 import { parseUrl } from '@/utils/url';
-import { Finding } from '@/types';
+import { Finding, AlgorithmCheck } from '@/types';
 import { VERIFIED_ENTITIES } from '@/utils/constants';
+import { defendAgainstNetworkLoopholes } from './network-loophole-defender';
 
 export interface UrlAnalysisOutput {
   findings: Finding[];
+  algorithmicChecks: AlgorithmCheck[];
   isVerifiedEntity: boolean;
   officialEntityName?: string;
   impersonatedEntity?: string;
   threatMultiplier: number;
+  trampolineTargetUrl?: string;
 }
 
 export function analyzeUrlStructure(rawUrl: string): UrlAnalysisOutput {
   const parsed = parseUrl(rawUrl);
   const findings: Finding[] = [];
+  const algorithmicChecks: AlgorithmCheck[] = [];
   let threatMultiplier = 1.0;
 
   if (!parsed.isValid) {
@@ -24,12 +28,18 @@ export function analyzeUrlStructure(rawUrl: string): UrlAnalysisOutput {
       category: 'domain',
       whySuspicious: 'Invalid format could be an attempt to trigger browser parsing anomalies or bypass filters.',
     });
-    return { findings, isVerifiedEntity: false, threatMultiplier: 2.0 };
+    return { findings, algorithmicChecks, isVerifiedEntity: false, threatMultiplier: 2.0 };
   }
 
-  // 1. Check if it is a known official entity
+  // 1. Run RFC 3986 Network Loophole & Protocol Evasion Defender
+  const defense = defendAgainstNetworkLoopholes(rawUrl);
+  findings.push(...defense.findings);
+  algorithmicChecks.push(...defense.algorithmicChecks);
+  threatMultiplier *= defense.threatMultiplier;
+
+  // 2. Check if it is a known official entity (only if NO trampoline bypass was trapped)
   const verifiedEntity = VERIFIED_ENTITIES[parsed.rootDomain];
-  if (verifiedEntity) {
+  if (verifiedEntity && !defense.trampolineTargetUrl && defense.anomaliesDetected === 0) {
     findings.push({
       id: 'official-verified-domain',
       title: `Authentic Official Domain: ${verifiedEntity.name}`,
@@ -41,6 +51,7 @@ export function analyzeUrlStructure(rawUrl: string): UrlAnalysisOutput {
     });
     return {
       findings,
+      algorithmicChecks,
       isVerifiedEntity: true,
       officialEntityName: verifiedEntity.name,
       threatMultiplier: 0.1,
@@ -130,8 +141,10 @@ export function analyzeUrlStructure(rawUrl: string): UrlAnalysisOutput {
 
   return {
     findings,
+    algorithmicChecks,
     isVerifiedEntity: false,
     impersonatedEntity: parsed.impersonatedEntity,
     threatMultiplier,
+    trampolineTargetUrl: defense.trampolineTargetUrl,
   };
 }

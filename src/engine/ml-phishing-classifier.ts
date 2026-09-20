@@ -23,6 +23,11 @@ export interface MLClassificationResult {
   modelName: string;
   featureCount: number;
   inferenceTimeMs: number;
+  metrics: {
+    shannonEntropy: number;
+    levenshteinMinDistance: number;
+    closestBrand?: string;
+  };
 }
 
 // Top known targeted brands for Levenshtein edit distance probe
@@ -158,8 +163,17 @@ export function classifyPayloadML(
       modelName: 'IsItLegit Ensemble ML Classifier v4.2',
       featureCount: 20,
       inferenceTimeMs: Math.round((performance.now() - startTime) * 100) / 100,
+      metrics: {
+        shannonEntropy: 2.1,
+        levenshteinMinDistance: 999,
+        closestBrand: undefined,
+      },
     };
   }
+
+  let computedEntropy = calculateShannonEntropy(input);
+  let finalClosestBrand: string | undefined;
+  let finalMinDistance = 999;
 
   // Feature vector accumulator and weights
   // Logistic Regression intercept (bias)
@@ -229,6 +243,11 @@ export function classifyPayloadML(
       }
     }
 
+    if (closestBrand) {
+      finalClosestBrand = closestBrand;
+      finalMinDistance = minDistance;
+    }
+
     if (closestBrand && minDistance <= 2) {
       const w = 3.5;
       logOdds += w;
@@ -242,6 +261,7 @@ export function classifyPayloadML(
 
     // 3. Shannon Entropy of Hostname
     const entropy = calculateShannonEntropy(host);
+    computedEntropy = entropy;
     if (entropy > 4.2) {
       const w = 2.4;
       logOdds += w;
@@ -430,5 +450,10 @@ export function classifyPayloadML(
     modelName: 'IsItLegit Ensemble ML Classifier v4.2',
     featureCount: 20,
     inferenceTimeMs: Math.round((performance.now() - startTime) * 100) / 100,
+    metrics: {
+      shannonEntropy: computedEntropy,
+      levenshteinMinDistance: finalMinDistance,
+      closestBrand: finalClosestBrand,
+    },
   };
 }

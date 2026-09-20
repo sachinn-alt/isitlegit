@@ -42,6 +42,22 @@ export interface OfficialEntity {
   officialContactUrl?: string;
 }
 
+export interface AlgorithmCheck {
+  id: string;
+  name: string;
+  category: 'network' | 'ml' | 'lexical' | 'cryptographic' | 'identity';
+  status: 'passed' | 'warning' | 'critical' | 'verified';
+  metric?: string;
+  details: string;
+}
+
+export interface AlgorithmicTelemetry {
+  algorithms: AlgorithmCheck[];
+  totalAlgorithmsRun: number;
+  anomaliesTrapped: number;
+  loopholeResistanceScore: number;
+}
+
 export interface ScanResult {
   id: string;
   type: ScanType;
@@ -70,6 +86,7 @@ export interface ScanResult {
   timestamp: number;
   durationMs: number;
   enginesUsed: string[];
+  algorithmicTelemetry?: AlgorithmicTelemetry;
 }
 
 export interface ScanRecord {

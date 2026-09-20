@@ -11,6 +11,7 @@ import { ThreatBreakdown } from '@/components/results/ThreatBreakdown';
 import { SourceList } from '@/components/results/SourceList';
 import { AdvicePanel } from '@/components/results/AdvicePanel';
 import { ShareCard } from '@/components/results/ShareCard';
+import { AlgorithmicMatrixPanel } from '@/components/results/AlgorithmicMatrixPanel';
 import { Shield, AlertOctagon, RotateCcw } from 'lucide-react';
 import { GithubIcon } from '@/components/common/GithubIcon';
 import { ScanType } from '@/types';
@@ -136,6 +137,8 @@ export const ScanPage = () => {
             isBookmarked={isBookmarked}
             onShare={() => setIsShareOpen(true)}
           />
+
+          <AlgorithmicMatrixPanel telemetry={result.algorithmicTelemetry} />
 
           <AdvicePanel
             advice={result.advice}

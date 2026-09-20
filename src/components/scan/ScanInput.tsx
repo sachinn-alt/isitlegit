@@ -322,6 +322,20 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
                   type="button"
                   onClick={() =>
                     loadDemo(
+                      'url',
+                      'https://www.paypal.com:account-security@malicious-drop.xyz/login'
+                    )
+                  }
+                  className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F0] hover:bg-[#D02020] hover:text-white border-2 border-[#121212] text-[#121212] font-bold uppercase tracking-wider transition-all cursor-pointer shadow-[2px_2px_0px_0px_#121212] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#D02020]" />
+                  <span>@ Loophole Spoof</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    loadDemo(
                       'email',
                       'FEDEX: Package #US-8812 is on hold due to $1.85 unpaid fee. Pay within 12h: http://fedx-pkg-status.link'
                     )
