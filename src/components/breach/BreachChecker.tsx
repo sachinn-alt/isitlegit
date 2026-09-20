@@ -127,7 +127,7 @@ export const BreachChecker = () => {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-xs font-medium text-[#62666D]">
-            🔒 <strong>Mathematical Proof</strong>: Only the first 5 characters of the SHA-1 hash are sent. Your plaintext password never leaves this browser.
+            🔒 <strong>Zero Data Storage</strong>: Only a 5-character SHA-1 prefix is queried via k-anonymity. Your password never leaves your device and vanishes immediately after check.
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">

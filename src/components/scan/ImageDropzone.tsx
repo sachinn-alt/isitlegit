@@ -84,6 +84,13 @@ export const ImageDropzone = ({
         </div>
       </div>
 
+      {/* Zero Storage Badge */}
+      <div className="flex items-center gap-2 p-2.5 bg-white border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] text-xs font-bold text-[#121212]">
+        <span className="w-2 h-2 rounded-full bg-[#40C020] shrink-0" />
+        <span className="uppercase font-black text-[#121212]">Zero Data Storage:</span>
+        <span className="text-[#44474E] font-medium">Uploaded images are processed 100% in browser memory and vanish completely after check.</span>
+      </div>
+
       {/* Upload Zone */}
       <div
         onDragOver={(e) => {

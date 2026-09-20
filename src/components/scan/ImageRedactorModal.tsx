@@ -136,7 +136,7 @@ export const ImageRedactorModal = ({
             </DialogTitle>
           </div>
           <DialogDescription className="text-xs font-bold uppercase text-[#62666D] mt-1">
-            Drag your mouse or finger across sensitive information (account numbers, names, addresses) to redact them before inspection.
+            Drag across sensitive info to blackout before inspection. Images stay 100% on your device, are never stored, and vanish immediately after check.
           </DialogDescription>
         </DialogHeader>
 

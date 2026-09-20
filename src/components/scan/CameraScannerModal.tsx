@@ -127,9 +127,14 @@ export const CameraScannerModal = ({
               <span>LIVE QR CAMERA SCANNER</span>
             </DialogTitle>
           </div>
-          <p className="text-xs font-bold uppercase text-[#62666D] mt-1">
-            Real-time on-device QR code inspection
-          </p>
+          <div className="flex flex-wrap items-center justify-between gap-1 mt-1">
+            <p className="text-xs font-bold uppercase text-[#62666D]">
+              Real-time on-device QR code inspection
+            </p>
+            <span className="text-[9px] font-mono font-black uppercase text-[#40C020] bg-[#121212] px-2 py-0.5 border border-[#121212]">
+              VANISHES AFTER CHECK
+            </span>
+          </div>
         </DialogHeader>
 
         {/* Viewfinder Container */}
@@ -177,6 +182,11 @@ export const CameraScannerModal = ({
             <span>ALIGN QR CODE IN BOX</span>
           </div>
         </div>
+
+        {/* Ephemeral Notice */}
+        <p className="text-[10px] font-mono font-bold text-center text-[#62666D] uppercase">
+          🔒 Zero-Storage: Camera feed is analyzed locally and vanishes immediately after check
+        </p>
 
         {/* Controls */}
         <div className="flex items-center justify-between pt-2 border-t-2 border-[#121212] gap-3">

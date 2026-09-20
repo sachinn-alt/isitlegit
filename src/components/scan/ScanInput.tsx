@@ -16,6 +16,7 @@ import {
   ArrowRight,
   X,
   KeyRound,
+  ShieldCheck,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -234,6 +235,10 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
                   </kbd>
                 </div>
               </div>
+              <div className="flex items-center gap-1.5 mt-2 text-[11px] font-mono text-[#62666D] font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#40C020]" />
+                <span>Zero storage: URL is analyzed in memory only and vanishes immediately after check.</span>
+              </div>
             </TabsContent>
 
             {/* Message/Email Input */}
@@ -255,6 +260,10 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
                     <X className="w-4 h-4" />
                   </button>
                 )}
+              </div>
+              <div className="flex items-center gap-1.5 mt-2 text-[11px] font-mono text-[#62666D] font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#40C020]" />
+                <span>Zero storage: Message text is processed ephemerally and vanishes immediately after check.</span>
               </div>
             </TabsContent>
 
@@ -337,6 +346,26 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
             )}
           </form>
         </Tabs>
+      </div>
+
+      {/* Zero Storage / Ephemeral Guarantee Banner */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 bg-[#F0F0F0] border-2 sm:border-4 border-[#121212] shadow-[4px_4px_0px_0px_#121212]">
+        <div className="flex items-start sm:items-center gap-3">
+          <div className="w-8 h-8 bg-[#121212] text-[#40C020] flex items-center justify-center shrink-0 border border-[#121212]">
+            <ShieldCheck className="w-5 h-5" strokeWidth={2.5} />
+          </div>
+          <div className="text-xs space-y-0.5">
+            <div className="font-black uppercase tracking-wider text-[#121212] flex items-center gap-2 flex-wrap">
+              <span>ZERO-DATA STORAGE GUARANTEE</span>
+              <span className="px-1.5 py-0.5 bg-[#40C020] text-[#121212] text-[10px] font-black uppercase tracking-widest border border-[#121212]">
+                VANISHES AFTER CHECK
+              </span>
+            </div>
+            <p className="font-medium text-[#44474E] text-[11px] sm:text-xs leading-normal">
+              We do not store or retain any info from the user. All URLs, messages, photos, and check requests are processed in temporary browser memory and vanish completely after check.
+            </p>
+          </div>
+        </div>
       </div>
 
       <CameraScannerModal

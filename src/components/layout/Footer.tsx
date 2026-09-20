@@ -91,7 +91,7 @@ export const Footer = () => {
 
               <div className="flex items-center gap-2 text-[11px] text-[#A0A0A0]">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#40C020]" />
-                <span>Zero Server Logging Guaranteed</span>
+                <span>Zero Data Storage: All Info Vanishes After Check</span>
               </div>
             </div>
           </div>

@@ -62,6 +62,11 @@ export const ScanPage = () => {
             <span>FORM FOLLOWS FUNCTION</span>
           </div>
 
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F0F0F0] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_0px_#40C020] text-xs font-black uppercase tracking-widest">
+            <Shield className="w-3.5 h-3.5 text-[#121212]" />
+            <span>ZERO DATA STORAGE • VANISHES AFTER CHECK</span>
+          </div>
+
           <a
             href="https://github.com/sachinn-alt"
             target="_blank"
@@ -81,7 +86,7 @@ export const ScanPage = () => {
 
         {/* Subhead with geometric punch */}
         <p className="text-base sm:text-xl font-medium text-[#121212] leading-relaxed max-w-2xl mx-auto">
-          Dissect weaponized links, fake bank SMS alerts, homoglyph lookalikes, and OTP smishing. Verified through on-device cryptographic heuristics.
+          Dissect weaponized links, fake bank SMS alerts, homoglyph lookalikes, and OTP smishing. 100% private — zero info is ever stored; everything vanishes immediately after check.
         </p>
       </div>
 
