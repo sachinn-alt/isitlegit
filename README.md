@@ -1,180 +1,241 @@
-# IsItLegit — AI-Powered Scam, Phishing & Legitimacy Intelligence Engine 🛡️
+<div align="center">
 
-[![AWS Amplify](https://img.shields.io/badge/AWS-Amplify%20Hosting-FF9900?logo=amazonaws&logoColor=white)](https://aws.amazon.com/amplify/)
-[![React 19](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-CSS%20v4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![PWA Ready](https://img.shields.io/badge/PWA-Offline%20&%20Share%20Target-5A0FC8?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
-[![MCP Server](https://img.shields.io/badge/Model%20Context%20Protocol-MCP%20Ready-00D4B2)](https://modelcontextprotocol.io/)
-[![Built for Bharat Builds Tour](https://img.shields.io/badge/Bharat%20Builds%20Tour-First%20Commit-FF6B6B)](https://www.wemakedevs.org/aws/first-commit)
+# IsItLegit 🛡️
+### AI-Powered Scam, Phishing & Network Loophole Intelligence Engine
 
-> **Inspect suspicious links, WhatsApp texts, and emails without clicking them. Distinguish genuine 2FA OTP codes and bank fraud alerts from malicious scams with 100% zero-knowledge client-side privacy.**
+[![Live Application](https://img.shields.io/badge/Live%20App-sachinn--alt.github.io%2Fisitlegit-1040C0?style=for-the-badge&logo=githubpages&logoColor=white)](https://sachinn-alt.github.io/isitlegit/)
+[![Loophole Defense](https://img.shields.io/badge/RFC%203986-Loophole%20Defender-D02020?style=for-the-badge&logo=shield&logoColor=white)](https://sachinn-alt.github.io/isitlegit/)
+[![Zero Storage Guarantee](https://img.shields.io/badge/Zero%20Storage-100%25%20Ephemeral-F0C020?style=for-the-badge&labelColor=121212&logoColor=121212)](https://sachinn-alt.github.io/isitlegit/)
+[![Test Suite](https://img.shields.io/badge/Tests-28%20Passed-121212?style=for-the-badge&logo=vitest&logoColor=white)](https://github.com/sachinn-alt/isitlegit)
+
+<br/>
+
+```
+ █▀▀ █░█ █▀▀ █▀▀ █▄▀   █░░ █ █▄░█ █▄▀ █▀ 
+ █▄▄ █▀█ ██▄ █▄▄ █░█   █▄▄ █ █░▀█ █░█ ▄█ 
+   RFC 3986 ANTI-EVASION • ZERO STORAGE PRIVACY • ML PHISHING INFERENCE
+```
+
+<p align="center">
+  <b>Inspect suspicious links, emails, and alerts without ever clicking them.</b><br/>
+  Traps obscure network evasion exploits (DWORD decimal IPs, userinfo camouflage, multi-layer percent-encoding, invisible Unicode) and verifies genuine bank 2FA OTP codes — <i>100% client-side, zero storage, vanishes immediately after analysis.</i>
+</p>
+
+[**Explore Live Demo »**](https://sachinn-alt.github.io/isitlegit/) · [**Report Loophole »**](https://github.com/sachinn-alt/isitlegit/issues) · [**View Source »**](https://github.com/sachinn-alt/isitlegit)
+
+</div>
 
 ---
 
-## 🌟 Overview
+## 🎨 Visual Identity & Bauhaus Constructivist Design
 
-Every day, millions of people receive urgent SMS messages, WhatsApp forwards, suspicious courier alerts, and QR codes. When users receive a real bank fraud alert or a 2FA OTP code, they often panic and call fake numbers; when they receive a phishing link, they accidentally click it.
+IsItLegit is built on a high-contrast **Bauhaus Constructivist Design System** featuring crisp geometric layouts, stark borders, and bold functional color-coding:
 
-**IsItLegit** is an open-source cybersecurity platform and Progressive Web App built for the **Bharat Builds Tour: First Commit Hackathon (WeMakeDevs & AWS)**. It features:
-- **Non-Clicking Inspection**: Safely analyze URLs, messages, and emails without opening them in your browser.
-- **Authenticity & Legitimacy Verification**: Confirms genuine security alerts and bank 2FA OTPs, explaining *why* they looked alarming versus *why* they are legitimate.
-- **Computer Vision QR Code Scanner**: Live real-time camera scanning powered by `jsQR` with an animated cyber reticle HUD.
-- **Zero-Config Offline Intelligence**: Runs homoglyph attack detection, RDAP domain registration age heuristics, brand impersonation scans, and Shannon entropy analysis completely in-browser with zero cost or API keys.
-- **100% Hardware Privacy**: Zero server logging and zero remote telemetry. Credentials are encrypted locally using **AES-GCM 256-bit** with PBKDF2 keys via the browser's Web Crypto API.
-- **Model Context Protocol (MCP) Server**: Allows AI agents (Claude Desktop, Cursor, Antigravity) to directly call threat analysis tools.
-- **Progressive Web App (PWA)**: Installable on Android, iOS, and Desktop with offline caching and native **Web Share Target** (share suspicious links directly from WhatsApp/Telegram).
+| Swatch | Color Name | Hex Code | Purpose in IsItLegit |
+| :---: | :--- | :---: | :--- |
+| <img src="https://via.placeholder.com/20/D02020/000000?text=+" width="20" height="20" /> | **Bauhaus Red** | `#D02020` | Critical threats, malicious network loopholes, phishing verdicts |
+| <img src="https://via.placeholder.com/20/1040C0/000000?text=+" width="20" height="20" /> | **Bauhaus Blue** | `#1040C0` | Primary actions, verified authentic domains, algorithmic telemetry |
+| <img src="https://via.placeholder.com/20/F0C020/000000?text=+" width="20" height="20" /> | **Bauhaus Yellow** | `#F0C020` | Warnings, suspicious anomalies, high-entropy token highlights |
+| <img src="https://via.placeholder.com/20/121212/000000?text=+" width="20" height="20" /> | **Stark Ink** | `#121212` | Solid structure, 4px/6px hard-offset shadows, geometric borders |
+| <img src="https://via.placeholder.com/20/F0F0F0/000000?text=+" width="20" height="20" /> | **Canvas Cream** | `#F0F0F0` | High-legibility tactile background with subtle constructivist dot grid |
 
 ---
 
-## 🏗️ Architecture
+## 🔒 100% Zero-Storage Ephemeral Privacy Guarantee
+
+> [!IMPORTANT]
+> **Your data vanishes the second your check completes.**  
+> IsItLegit does **not** log, store, cache, or transmit your URLs, emails, SMS text, or scanned images to any remote database.
+
+- **Zero Remote Telemetry**: No trackers, no analytics pixels, no server-side ingestion logs.
+- **In-Memory Volatility**: Text, URLs, and QR frames are held strictly in browser RAM during computation and discarded immediately upon session completion.
+- **Safe Sandboxing**: Inspected URLs are **never fetched directly or triggered in the background**, protecting you against drive-by malware execution, tracking cookies, and IP read-receipts.
+- **Client-Side Cryptographic Keyring**: Any optional user-provided API keys (Gemini, VirusTotal) are protected with **AES-GCM 256-bit** encryption and PBKDF2 derivation (100,000 iterations) locally via the browser's native Web Crypto API.
+
+---
+
+## ⚙️ RFC 3986 Network Loophole Defender
+
+Phishing attackers exploit standard networking specifications to trick browser address bars, spam filters, and human inspection. IsItLegit incorporates a dedicated **Algorithmic RFC 3986 Anti-Evasion Engine** (`src/engine/network-loophole-defender.ts`):
 
 ```mermaid
 flowchart TD
-    subgraph Ingestion["Input & Ingestion Channels"]
-        A[Clipboard Paste] --> Ingest
-        B[Live Camera QR Scanner] --> Ingest
-        C[WhatsApp / SMS Share Target] --> Ingest
-        D[AI Agent via MCP Server] --> Ingest
-        Ingest[Input Parsing & Normalization]
+    Raw[Raw Input URL / Text] --> Norm[RFC 3986 Normalizer]
+    
+    subgraph DeObfuscation["De-Cloaking & Anti-Evasion Layer"]
+        Norm --> DecIP[DWORD / Hex / Octal IP De-Cloaker<br/>2130706433 ➔ 127.0.0.1<br/>0x7f000001 ➔ 127.0.0.1]
+        Norm --> Userinfo[Userinfo '@' Credential Camouflage Trap<br/>paypal.com:auth@evil.xyz]
+        Norm --> Unicode[Invisible Character & BiDi Override Scanner<br/>U+200B Zero-Width, U+202E RTL]
+        Norm --> MultiPct[Recursive Multi-Layer Percent De-Encoder<br/>%252e%252e, %00 Null Byte, CRLF]
+        Norm --> Trampoline[Open Redirect & Trampoline Deep Hunter<br/>q=, redirect_uri=, next=, dest=]
+        Norm --> PortCloud[Non-Standard Ports & Disposable Cloud Scanners<br/>:8080, workers.dev, pages.dev, duckdns]
     end
 
-    subgraph SecurityEngine["Multi-Engine Intelligence Core"]
-        Ingest --> L1[Local Heuristics Engine<br/>• Homoglyphs & Lookalikes<br/>• Punycode & Subdomain Spoofing<br/>• Shannon Entropy Analysis]
-        Ingest --> L2[WHOIS / RDAP Engine<br/>• Domain Age & Registrar Check]
-        Ingest --> L3[Legitimacy & OTP Verifier<br/>• Bank 2FA vs Takeover Patterns]
-        Ingest --> L4[Optional Cloud AI<br/>• Google Gemini 2.0 Flash<br/>• Amazon Bedrock Claude 3.5]
+    subgraph MatrixEngine["Algorithmic Verification Matrix"]
+        DeObfuscation --> ML[Client-side Naive Bayes ML Inference]
+        DeObfuscation --> Lev[Levenshtein Brand Proximity Distance d]
+        DeObfuscation --> Ent[Shannon Entropy H Calculation]
+        DeObfuscation --> Hom[Unicode Homoglyph / Punycode Matrix]
     end
 
-    subgraph Decision["Consensus & Scoring"]
-        L1 & L2 & L3 & L4 --> Cons[Weighted Threat Scorer]
-        Cons --> Verdict["Verdict: SAFE / SUSPICIOUS / DANGEROUS<br/>+ Clear Plain-English Advice"]
-    end
-
-    subgraph Storage["Zero-Knowledge Client Storage"]
-        Verdict --> Dexie[(Dexie IndexedDB)]
-        Keys[API Keys / Secrets] --> Crypto[Web Crypto AES-GCM 256] --> Dexie
+    subgraph Consensus["Threat Verdict Consensus"]
+        ML & Lev & Ent & Hom --> ResScore[Loophole Resistance Score %]
+        ResScore --> FinalVerdict["VERDICT: SAFE • SUSPICIOUS • PHISHING<br/>+ Plain-English Human Action Steps"]
     end
 ```
 
----
+### Supported Anti-Evasion Countermeasures
 
-## 🚀 Key Features
-
-### 1. 🛡️ Legitimacy & Authentic Alert Classifier
-Unlike conventional blacklists that only flag malicious links, **IsItLegit** recognizes legitimate transactional alerts (e.g. Chase, Bank of America, PayPal, SBI, HDFC):
-- Explains why the message was triggered.
-- Confirms whether the link belongs to an officially verified root domain.
-- Reminds the user never to share one-time passcodes over the phone.
-
-### 2. 📷 Live Camera QR Scanner
-- In-browser computer vision using `jsQR` running at 30 fps.
-- Cybernetic scanner reticle HUD with targeting guides and instant decode sound/haptics.
-- Inspects QR code payloads before any browser navigation can occur.
-
-### 3. 📱 Progressive Web App (PWA) with Web Share Target
-- **Instant Installation**: Add to home screen on iOS, Android, and Desktop Chrome/Edge.
-- **Share Directly from Messaging Apps**: Tap "Share" on any suspicious text or link inside WhatsApp, Telegram, or SMS, and select **IsItLegit** to analyze it instantly.
-- **Full Offline Operation**: Service Worker caches all critical threat databases and local heuristics for use without internet.
-
-### 4. 🤖 Model Context Protocol (MCP) Server
-Integrated MCP server exposes threat intelligence tools over standard I/O (stdio):
-- `check_url`: Inspects links for brand spoofing, Cyrillic lookalikes, and dangerous TLDs.
-- `check_message`: Scans messages for social engineering, artificial urgency, and financial scams.
-- `verify_authenticity`: Confirms whether an unexpected 2FA OTP code or security notification is genuine.
+| Evasion Technique | Real-World Attack Sample | RFC / Vector | Algorithmic Trap |
+| :--- | :--- | :---: | :--- |
+| **DWORD Decimal IP Cloaking** | `http://3583560641/login` | RFC 3986 §3.2.2 | De-cloaks 32-bit integer arithmetic into resolved dot-decimal IP (`213.159.183.193`) |
+| **Hexadecimal & Octal IPs** | `http://0xd5.0x9f.0xb7.0xc1` | POSIX / inet_addr | Normalizes mixed hex (`0x..`) and octal (`0177...`) base formats |
+| **Userinfo Credential Camouflage** | `https://paypal.com:auth@evil.xyz/login` | RFC 3986 §3.2.1 | Strips misleading brand credentials preceding `@` and flags destination domain `evil.xyz` |
+| **Recursive Percent-Encoding** | `http://legit.com%252e%252e@evil.com` | RFC 3986 §2.1 | Iteratively unpacks nested percent tokens (`%2525` ➔ `%25` ➔ `%`) and traps null bytes (`%00`) |
+| **BiDi Override & Zero-Width Chars** | `google.com\u202Ecod.evil.com` | Unicode TR9 | Detects Right-To-Left overrides (`U+202E`) and zero-width spaces (`U+200B`, `U+FEFF`) |
+| **Open Redirect / Trampolines** | `google.com/url?q=https://phish.ru` | CWE-601 | Recursively extracts target landing parameter and evaluates the nested terminal URL |
+| **Disposable Cloud Subdomain Stacking** | `paypal-verify.workers.dev` | Multi-tenant DNS | Identifies abuse of serverless workers (`workers.dev`, `pages.dev`, `duckdns.org`, `ngrok-free.app`) |
+| **Subdomain Viewport Truncation** | `chase.com.security.verify.account-update.tk` | Mobile UX Abuse | Flags $\ge 3$ stacked subdomains designed to push the real TLD off narrow smartphone screens |
 
 ---
 
-## ⚡ Quick Start (Local Development)
+## 🔬 Algorithmic Verification Matrix
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) v18 or higher (v20+ recommended)
-- `npm`
+Every scan displays a live **Algorithmic Matrix Telemetry Panel** detailing quantitative heuristics:
 
-### Installation
-```bash
-# Clone the repository
-git clone https://github.com/sachinn-alt/isitlegit.git
-cd isitlegit
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
+```
+┌─────────────────────────── ALGORITHMIC VERIFICATION MATRIX ───────────────────────────┐
+│                                                                                        │
+│  [✓] RFC 3986 Loophole Trap   [✓] Levenshtein Distance    [✓] Shannon Entropy H       │
+│      De-obfuscated: 0 Traps       Similarity: d = 1 (Spoof)   Entropy: 4.82 bits/char  │
+│                                                                                        │
+│  [✓] Punycode / Homoglyph      [✓] Naive Bayes ML Core     [✓] Loophole Resistance     │
+│      Cyrillic: 0 Spoofs           Inference: 97.4% Phish      Resistance Score: 98.6%  │
+│                                                                                        │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+1. **Shannon Entropy Calculation ($H$)**:
+   $$\text{Entropy } H = -\sum_{i=1}^{n} P(c_i) \log_2 P(c_i)$$
+   Measures cryptographic randomness in domains and tokens to catch DGA (Domain Generation Algorithms) and malicious hash parameters.
+2. **Levenshtein Distance Metric ($d$)**:
+   Computes edit distance against a curated dictionary of global financial, tech, and payment brands to instantly identify character substitutions (`micros0ft.com`, `paypa1.com`).
+3. **Punycode & Cyrillic Homoglyph Matrix**:
+   Detects confusable characters across mixed scripts (e.g. Cyrillic `а`, `е`, `о`, `р`, `с` mimicking Latin glyphs) under RFC 3492.
+4. **Client-Side Naive Bayes Machine Learning Classifier**:
+   Zero-dependency in-memory classifier trained on high-signal threat indicators, financial coercion phrasing, and malicious URL structural features.
 
 ---
 
-## 🧪 Testing & Verification
+## 🛡️ Legitimacy & Genuine 2FA Verifier
 
-IsItLegit includes comprehensive unit test suites covering URL normalization, homoglyph detection, email MIME parsing, and threat scoring algorithms:
-
-```bash
-# Run unit test suite (10/10 automated tests)
-npm test
-
-# Build production bundle
-npm run build
-```
+Unlike standard blocklists that only shout *"Dangerous!"*, IsItLegit solves panic caused by real security warnings. When you receive a real bank transaction alert or 2FA OTP code, IsItLegit:
+- Identifies the official originating sender and authentic domain infrastructure.
+- Explains **why the message was triggered** (e.g. new sign-in from another device, card transaction confirmation).
+- Explicitly reminds the user **never to recite OTP codes to incoming callers**.
 
 ---
 
-## 🔌 Using the MCP Server with Claude Desktop
+## 📷 Optical QR Scanner (In-Browser Computer Vision)
 
-The MCP server is located at `mcp/server.js`. To connect it to **Claude Desktop**, add this snippet to your Claude Desktop configuration file:
+- **Real-Time Optical Decoding**: Powered by client-side `jsQR` running up to 30 fps directly in the browser.
+- **Tactile Bauhaus HUD Reticle**: High-contrast geometric targeting overlay with corner markers and status readouts.
+- **Pre-Navigation Interception**: Decodes QR payloads in memory so malicious URLs can be inspected and neutralized *before* any browser tab opens.
 
-**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`  
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+---
 
+## 📱 Progressive Web App (PWA) with Web Share Target
+
+IsItLegit operates as a full offline-capable PWA installable on iOS, Android, macOS, and Windows:
+- **Share Directly From Messaging Apps**: Tap **Share** on any suspicious SMS or WhatsApp message and select **IsItLegit** to analyze it without copying and pasting.
+- **Offline Reliability**: Service Workers cache security heuristics and the machine learning classifier for field operation without internet.
+
+---
+
+## 🤖 Model Context Protocol (MCP) Server
+
+Connect IsItLegit directly to AI agents (Claude Desktop, Cursor, Antigravity) via the standard Model Context Protocol:
+
+### Tools Exposed
+- `check_url`: Evaluates URLs for network loopholes, homoglyphs, and brand spoofing.
+- `check_message`: Scans messages for social engineering, urgency tactics, and financial scam signatures.
+- `verify_authenticity`: Distinguishes genuine 2FA OTP security alerts from account takeover lures.
+
+### Claude Desktop Configuration
+Add this to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
     "isitlegit": {
       "command": "node",
-      "args": [
-        "C:\\Users\\DELL\\.gemini\\antigravity-ide\\scratch\\isitlegit\\mcp\\server.js"
-      ]
+      "args": ["<PATH_TO_ISITLEGIT>/mcp/server.js"]
     }
   }
 }
 ```
 
-Now Claude can use `check_url`, `check_message`, and `verify_authenticity` natively!
+---
+
+## ⚡ Quick Start & Development
+
+### Requirements
+- [Node.js](https://nodejs.org/) v18+ (v20+ recommended)
+- `npm`
+
+### Local Setup
+```bash
+# 1. Clone repository
+git clone https://github.com/sachinn-alt/isitlegit.git
+cd isitlegit
+
+# 2. Install dependencies
+npm install
+
+# 3. Start local development server
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
-## ☁️ Deploying to AWS Amplify Hosting (100% Free Tier)
+## 🧪 Test Suite & Verification
 
-This repository includes a pre-configured [`amplify.yml`](amplify.yml) file designed for automated zero-config deployment on AWS:
+The test suite covers algorithmic de-cloaking, RFC compliance, ML inference, and privacy guarantees:
 
-1. Log in to the [AWS Management Console](https://console.aws.amazon.com/amplify/).
-2. Navigate to **AWS Amplify** → Click **"Host web app"**.
-3. Select **GitHub** as the source repository and authorize AWS.
-4. Select the repository **`sachinn-alt/isitlegit`** and branch **`main`**.
-5. Amplify will auto-detect `amplify.yml`. Click **"Save and deploy"**.
-6. Within 2 minutes, your live production app will be accessible with a free SSL certificate on `https://main.xxxx.amplifyapp.com`!
+```bash
+# Run all unit tests
+npm test -- --run
+```
+
+```
+ ✓ src/tests/scoring.test.ts (2 tests)
+ ✓ src/tests/confidentiality.test.ts (3 tests)
+ ✓ src/tests/email-analyzer.test.ts (3 tests)
+ ✓ src/tests/network-loophole-defender.test.ts (11 tests)
+ ✓ src/tests/ml-phishing-classifier.test.ts (4 tests)
+ ✓ src/tests/url-analyzer.test.ts (5 tests)
+
+ Test Files  6 passed (6)
+      Tests  28 passed (28)
+```
+
+```bash
+# Run production build
+npm run build
+```
 
 ---
 
-## 🔒 Security & Privacy Architecture
+## 👨‍💻 Author & Connect
 
-- **No Remote Telemetry**: Zero analytics trackers, zero logging pixels, and zero server-side storage.
-- **Hardware-Encrypted Keyring**: Any optional API keys (Gemini, VirusTotal, AWS) provided by the user are encrypted locally using AES-GCM 256-bit with PBKDF2 key derivation (100,000 iterations) directly in the browser's IndexedDB.
-- **Safe Sandboxing**: URLs submitted for inspection are never pinged or fetched directly without user consent, preventing drive-by malware downloads or read receipts.
+Engineered by **Sachin**:
 
----
-
-## 🏆 Hackathon Alignment
-
-Built for the **Bharat Builds Tour: First Commit Hackathon**:
-- **"Ship It" Track**: Production-ready, fully responsive PWA with offline caching, camera QR scanning, and automated AWS Amplify continuous deployment.
-- **"Best UI" Track**: Ultra-modern cybernetic visual design utilizing Aceternity UI, ReactBits animations, smooth glassmorphism, dynamic progress indicators, and accessible dark-first styling.
+- **GitHub**: [@sachinn-alt](https://github.com/sachinn-alt)
+- **LinkedIn**: [Sachin](https://www.linkedin.com/in/heyitsachin/)
+- **Instagram**: [@sac._.hinn](https://www.instagram.com/sac._.hinn/)
 
 ---
 
 ## 📄 License
 
-MIT License — free for personal, educational, and open-source use.
+Distributed under the **MIT License**. Free for personal, educational, and open-source cybersecurity defense.
