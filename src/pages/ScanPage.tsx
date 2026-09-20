@@ -11,7 +11,8 @@ import { ThreatBreakdown } from '@/components/results/ThreatBreakdown';
 import { SourceList } from '@/components/results/SourceList';
 import { AdvicePanel } from '@/components/results/AdvicePanel';
 import { ShareCard } from '@/components/results/ShareCard';
-import { Shield, AlertOctagon, RotateCcw } from 'lucide-react';
+import { Shield, AlertOctagon, RotateCcw, Star } from 'lucide-react';
+import { GithubIcon } from '@/components/common/GithubIcon';
 import { ScanType } from '@/types';
 
 export const ScanPage = () => {
@@ -54,15 +55,34 @@ export const ScanPage = () => {
       <div className="relative max-w-5xl mx-auto text-center space-y-6 pt-4 pb-4">
         
         {/* Decorative Geometric Trio Accent */}
-        <div className="flex items-center justify-center gap-3">
+        {/* Decorative Geometric Trio Accent & Developer Link */}
+        <div className="flex items-center justify-center gap-2.5 sm:gap-3 flex-wrap">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#121212] text-white border-2 border-[#121212] shadow-[3px_3px_0px_0px_#D02020] text-xs font-black uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-[#D02020]" />
             <span>FORM FOLLOWS FUNCTION</span>
           </div>
 
-          <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 bg-[#F0C020] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-widest">
-            <span>ZERO REMOTE LOGS</span>
-          </div>
+          <a
+            href="https://github.com/sachinn-alt"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Developed by sachinn-alt on GitHub"
+            className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#1040C0] hover:bg-[#0c3298] text-white border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-widest transition-transform hover:-translate-y-0.5"
+          >
+            <GithubIcon className="w-3.5 h-3.5 text-white" />
+            <span>DEV: @SACHINN-ALT</span>
+          </a>
+
+          <a
+            href="https://github.com/sachinn-alt/isitlegit"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Star IsItLegit on GitHub"
+            className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F0C020] hover:bg-[#d8a810] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-widest transition-transform hover:-translate-y-0.5"
+          >
+            <Star className="w-3.5 h-3.5 fill-[#121212] text-[#121212]" />
+            <span>STAR REPO</span>
+          </a>
         </div>
 
         {/* Massive Constructivist Headline */}

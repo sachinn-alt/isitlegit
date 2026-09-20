@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, BookOpen, History, Settings as SettingsIcon, Download, KeyRound } from 'lucide-react';
+import { Shield, BookOpen, History, Settings as SettingsIcon, Download, KeyRound, Star } from 'lucide-react';
+import { GithubIcon } from '@/components/common/GithubIcon';
 import { usePWA } from '@/hooks/usePWA';
 import { useSettings } from '@/hooks/useSettings';
 
@@ -88,6 +89,19 @@ export const Header = () => {
               <span>INSTALL APP</span>
             </button>
           )}
+
+          {/* GitHub Star Button */}
+          <a
+            href="https://github.com/sachinn-alt/isitlegit"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Star IsItLegit on GitHub (Developed by sachinn-alt)"
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-none bg-white hover:bg-[#F0C020] text-[#121212] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] text-xs font-black uppercase tracking-wider transition-all cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+          >
+            <GithubIcon className="w-3.5 h-3.5 text-[#121212]" />
+            <span className="hidden xs:inline">STAR</span>
+            <Star className="w-3.5 h-3.5 text-[#121212] fill-[#F0C020]" />
+          </a>
         </div>
       </div>
     </header>

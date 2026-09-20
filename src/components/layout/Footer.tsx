@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Shield, Lock } from 'lucide-react';
+import { Shield, Lock, Star } from 'lucide-react';
+import { GithubIcon } from '@/components/common/GithubIcon';
 
 export const Footer = () => {
   return (
@@ -23,9 +24,34 @@ export const Footer = () => {
               Constructivist cybersecurity engine. Pure client-side intelligence built to distinguish authentic transactional alerts from weaponized phishing attacks.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F0C020] text-[#121212] border-2 border-white shadow-[3px_3px_0px_0px_white] text-xs font-bold uppercase tracking-wider">
-              <Lock className="w-3.5 h-3.5" />
-              <span>Zero Server Telemetry • 100% On-Device Web Crypto</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F0C020] text-[#121212] border-2 border-white shadow-[3px_3px_0px_0px_white] text-xs font-bold uppercase tracking-wider">
+                <Lock className="w-3.5 h-3.5" />
+                <span>Zero Server Telemetry • 100% On-Device Web Crypto</span>
+              </div>
+            </div>
+
+            {/* Developer Attribution & Star Repo CTA */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
+              <a
+                href="https://github.com/sachinn-alt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#1040C0] hover:bg-[#0c3298] text-white border-2 border-white shadow-[3px_3px_0px_0px_white] text-xs font-black uppercase tracking-wider transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              >
+                <GithubIcon className="w-4 h-4 text-white" />
+                <span>DEVELOPED BY SACHINN-ALT</span>
+              </a>
+
+              <a
+                href="https://github.com/sachinn-alt/isitlegit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#D02020] hover:bg-[#b01818] text-white border-2 border-white shadow-[3px_3px_0px_0px_white] text-xs font-black uppercase tracking-wider transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+              >
+                <Star className="w-4 h-4 text-[#F0C020] fill-[#F0C020]" />
+                <span>STAR REPO</span>
+              </a>
             </div>
           </div>
 
@@ -95,23 +121,48 @@ export const Footer = () => {
         </div>
 
         <div className="border-t-2 border-[#383B3F] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#E0E0E0]">
-          <span>© 2026 IsItLegit. Form Follows Function. MIT License.</span>
-          <div className="flex items-center gap-6 font-bold uppercase tracking-wider">
-            <a 
-              href="https://github.com/sachinn-alt/isitlegit" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="text-[#F0C020] hover:underline"
+          <div className="flex flex-col sm:flex-row items-center gap-2">
+            <span>© 2026 IsItLegit. MIT License.</span>
+            <span className="hidden sm:inline text-[#62666D]">•</span>
+            <span>
+              Developed by{' '}
+              <a
+                href="https://github.com/sachinn-alt"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#F0C020] hover:underline font-bold"
+              >
+                @sachinn-alt
+              </a>
+            </span>
+          </div>
+
+          <div className="flex items-center gap-5 font-bold uppercase tracking-wider">
+            <a
+              href="https://github.com/sachinn-alt"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-white hover:text-[#F0C020] transition-colors"
             >
-              GitHub Repo
+              <GithubIcon className="w-3.5 h-3.5" />
+              <span>GitHub</span>
             </a>
-            <a 
-              href="https://sachinn-alt.github.io/isitlegit/" 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href="https://github.com/sachinn-alt/isitlegit"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-[#F0C020] hover:underline"
+            >
+              <Star className="w-3.5 h-3.5 fill-[#F0C020] text-[#F0C020]" />
+              <span>Star Repo</span>
+            </a>
+            <a
+              href="https://sachinn-alt.github.io/isitlegit/"
+              target="_blank"
+              rel="noreferrer"
               className="text-[#D02020] hover:underline"
             >
-              Live GitHub Pages
+              Live Site
             </a>
           </div>
         </div>
