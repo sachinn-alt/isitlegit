@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import jsQR from 'jsqr';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/ui/dialog';
-import { Button } from '@/ui/button';
-import { Camera, X, RefreshCw, Zap, ShieldCheck } from 'lucide-react';
-import { Badge } from '@/ui/badge';
+import { Camera, X, RefreshCw } from 'lucide-react';
 
 interface CameraScannerModalProps {
   isOpen: boolean;
@@ -119,20 +117,23 @@ export const CameraScannerModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-md bg-slate-950 border-slate-800 text-white rounded-3xl p-6 sm:p-8 overflow-hidden">
-        <DialogHeader className="border-b border-slate-800 pb-3">
-          <DialogTitle className="text-lg font-bold flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Camera className="w-5 h-5 text-blue-400" />
-              <span>Live Camera QR Scanner</span>
-            </div>
-            <Badge variant="safe" className="text-[10px] uppercase font-mono">
-              Computer Vision
-            </Badge>
-          </DialogTitle>
+      <DialogContent className="max-w-md bg-[#F0F0F0] border-2 sm:border-4 border-[#121212] shadow-[8px_8px_0px_0px_#121212] text-[#121212] rounded-none p-5 sm:p-7 space-y-4 overflow-hidden">
+        <DialogHeader className="border-b-2 sm:border-b-4 border-[#121212] pb-3 text-left">
+          <div className="flex items-center justify-between">
+            <DialogTitle className="text-base sm:text-lg font-black uppercase tracking-tight flex items-center gap-2 text-[#121212]">
+              <div className="p-1.5 bg-[#121212] text-[#F0C020] border border-[#121212]">
+                <Camera className="w-5 h-5" strokeWidth={2.5} />
+              </div>
+              <span>LIVE QR CAMERA SCANNER</span>
+            </DialogTitle>
+          </div>
+          <p className="text-xs font-bold uppercase text-[#62666D] mt-1">
+            Real-time on-device QR code inspection
+          </p>
         </DialogHeader>
 
-        <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 aspect-square flex items-center justify-center mt-2">
+        {/* Viewfinder Container */}
+        <div className="relative border-2 sm:border-4 border-[#121212] bg-[#121212] overflow-hidden aspect-square flex items-center justify-center rounded-none shadow-inner">
           {/* Video Stream Element */}
           <video
             ref={videoRef}
@@ -142,58 +143,60 @@ export const CameraScannerModal = ({
           {/* Hidden Canvas for Frame Processing */}
           <canvas ref={canvasRef} className="hidden" />
 
-          {/* Cybernetic HUD Overlay with Scanline & Reticle */}
+          {/* Bauhaus Constructivist Target Reticle */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
             {/* Viewfinder Target Box */}
-            <div className="relative w-64 h-64 border-2 border-blue-500/40 rounded-2xl">
-              {/* Corner brackets */}
-              <div className="absolute -top-1 -left-1 w-6 h-6 border-t-4 border-l-4 border-blue-400 rounded-tl-lg" />
-              <div className="absolute -top-1 -right-1 w-6 h-6 border-t-4 border-r-4 border-blue-400 rounded-tr-lg" />
-              <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-4 border-l-4 border-blue-400 rounded-bl-lg" />
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-4 border-r-4 border-blue-400 rounded-br-lg" />
+            <div className="relative w-56 sm:w-64 h-56 sm:h-64 border-2 border-dashed border-[#F0C020] rounded-none">
+              {/* Bauhaus Primary Color Corner brackets */}
+              <div className="absolute -top-1 -left-1 w-6 h-6 border-t-4 border-l-4 border-[#D02020] rounded-none" />
+              <div className="absolute -top-1 -right-1 w-6 h-6 border-t-4 border-r-4 border-[#1040C0] rounded-none" />
+              <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-4 border-l-4 border-[#1040C0] rounded-none" />
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-4 border-r-4 border-[#D02020] rounded-none" />
 
-              {/* Animated Laser Scanline */}
-              <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_12px_#38bdf8] animate-[bounce_2s_infinite]" />
+              {/* Bauhaus Red Laser Scanline */}
+              <div className="w-full h-1 bg-[#D02020] shadow-[0_0_8px_#D02020] animate-[bounce_2s_infinite]" />
             </div>
           </div>
 
           {/* Error Message */}
           {errorMsg && (
-            <div className="absolute inset-0 bg-slate-950/90 p-6 flex flex-col items-center justify-center text-center space-y-3 z-10">
-              <p className="text-xs text-rose-300 leading-relaxed">{errorMsg}</p>
-              <Button size="sm" variant="outline" onClick={startCamera} className="text-xs">
-                Retry Camera
-              </Button>
+            <div className="absolute inset-0 bg-[#121212]/95 p-6 flex flex-col items-center justify-center text-center space-y-3 z-10">
+              <p className="text-xs font-bold text-[#D02020] leading-relaxed uppercase">{errorMsg}</p>
+              <button
+                onClick={startCamera}
+                className="px-4 py-2 bg-white text-[#121212] text-xs font-black uppercase tracking-wider border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] cursor-pointer"
+              >
+                RETRY CAMERA
+              </button>
             </div>
           )}
 
           {/* Top Status Pill */}
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-slate-700/60 text-[11px] text-slate-300 flex items-center gap-1.5 z-10">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>Align QR code inside box</span>
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-[#121212] border-2 border-white px-3 py-1 rounded-none text-[10px] font-black uppercase text-white font-mono flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#121212] z-10">
+            <span className="w-2 h-2 rounded-full bg-[#40C020] animate-pulse" />
+            <span>ALIGN QR CODE IN BOX</span>
           </div>
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-between pt-4">
-          <Button
-            size="sm"
-            variant="outline"
+        <div className="flex items-center justify-between pt-2 border-t-2 border-[#121212] gap-3">
+          <button
+            type="button"
             onClick={toggleFacingMode}
-            className="text-xs gap-1.5 border-slate-700 hover:bg-slate-800"
+            className="flex-1 inline-flex items-center justify-center gap-2 h-11 px-3 bg-white hover:bg-[#F0C020] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-wider transition-all cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
           >
             <RefreshCw className="w-3.5 h-3.5" />
-            <span>Switch Camera</span>
-          </Button>
+            <span>SWITCH CAMERA</span>
+          </button>
 
-          <Button
-            size="sm"
-            variant="ghost"
+          <button
+            type="button"
             onClick={onClose}
-            className="text-xs text-slate-400 hover:text-white"
+            className="inline-flex items-center justify-center gap-1.5 h-11 px-5 bg-[#D02020] hover:bg-[#b01818] text-white border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-wider transition-all cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
           >
-            Cancel
-          </Button>
+            <X className="w-4 h-4" />
+            <span>CANCEL</span>
+          </button>
         </div>
       </DialogContent>
     </Dialog>
