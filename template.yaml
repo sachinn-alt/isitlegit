@@ -25,6 +25,15 @@ Resources:
     Properties:
       CodeUri: backend/lambda/
       Handler: scan-handler.handler
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "node20"
+        Sourcemap: false
+        EntryPoints:
+          - scan-handler.ts
+        Format: esm
       Policies:
         - Statement:
             - Effect: Allow
