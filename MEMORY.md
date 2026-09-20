@@ -152,9 +152,10 @@ The scoring engine (`src/engine/scoring.ts`) computes a weighted risk score from
   - **Type**: `200 (Rewrite)`
 - **Manual Zip Deploy**: Run `python scripts/package_deploy.py` to create a Unix-standard `isitlegit-deploy.zip` with forward slashes `/`.
 
-### 2. GitHub Pages & CI
-- **Automated Workflow**: [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs unit tests and deploys `dist/` to GitHub Pages.
-- **Custom Domain Warning**: [`public/CNAME`](public/CNAME) specifies `isitlegit.app`. If deploying to GitHub Pages without DNS pointing to GitHub, this will trigger a domain check error. Ensure DNS A records point to GitHub's IPs (`185.199.108.153`, etc.) or delete `CNAME`.
+### 2. GitHub Pages & CI (Live & Active)
+- **Live URL**: [`https://sachinn-alt.github.io/isitlegit/`](https://sachinn-alt.github.io/isitlegit/)
+- **Automated Workflow**: [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) automatically runs unit tests and deploys `dist/` on every push to `main`.
+- **Base Path**: Configured with `base: './'` in [`vite.config.ts`](vite.config.ts) for portable asset resolution across subpaths and custom domains.
 
 ### 3. Serverless Backend (AWS SAM)
 - SAM template configured at [`template.yaml`](template.yaml) with `Metadata: BuildMethod: esbuild` targeting Node 20.
