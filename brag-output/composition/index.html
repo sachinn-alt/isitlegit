@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, height=1080, initial-scale=1.0" />
+  <title>IsItLegit Launch Brag Video</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background-color: #F0F0F0;
+      color: #121212;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      position: relative;
+    }
+
+    /* Grid paper background pattern */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(18, 18, 18, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(18, 18, 18, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Outer Bauhaus frame */
+    .viewport-frame {
+      position: absolute;
+      inset: 24px;
+      border: 6px solid #121212;
+      box-shadow: 16px 16px 0px 0px #121212;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    /* Common scene container */
+    .scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 80px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* SCENE 1: 0.0s to 3.2s */
+    #scene-1 {
+      animation: scene1Anim 18.5s linear infinite;
+    }
+
+    /* SCENE 2: 3.2s to 6.8s */
+    #scene-2 {
+      animation: scene2Anim 18.5s linear infinite;
+    }
+
+    /* SCENE 3: 6.8s to 11.2s */
+    #scene-3 {
+      animation: scene3Anim 18.5s linear infinite;
+    }
+
+    /* SCENE 4: 11.2s to 15.0s */
+    #scene-4 {
+      animation: scene4Anim 18.5s linear infinite;
+    }
+
+    /* SCENE 5: 15.0s to 18.5s */
+    #scene-5 {
+      animation: scene5Anim 18.5s linear infinite;
+    }
+
+    @keyframes scene1Anim {
+      0% { opacity: 0; visibility: visible; transform: scale(0.95); }
+      2% { opacity: 1; transform: scale(1); }
+      16% { opacity: 1; transform: scale(1); }
+      17.5% { opacity: 0; transform: translateY(-30px); visibility: hidden; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes scene2Anim {
+      0%, 17% { opacity: 0; visibility: hidden; transform: translateY(30px); }
+      17.5% { opacity: 1; visibility: visible; transform: translateY(0); }
+      35% { opacity: 1; transform: translateY(0); }
+      36.5% { opacity: 0; transform: scale(0.96); visibility: hidden; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes scene3Anim {
+      0%, 36.5% { opacity: 0; visibility: hidden; transform: scale(0.96); }
+      37% { opacity: 1; visibility: visible; transform: scale(1); }
+      59% { opacity: 1; transform: scale(1); }
+      60.5% { opacity: 0; transform: translateY(-30px); visibility: hidden; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes scene4Anim {
+      0%, 60.5% { opacity: 0; visibility: hidden; transform: translateY(30px); }
+      61% { opacity: 1; visibility: visible; transform: translateY(0); }
+      80% { opacity: 1; transform: translateY(0); }
+      81% { opacity: 0; transform: scale(1.04); visibility: hidden; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes scene5Anim {
+      0%, 81% { opacity: 0; visibility: hidden; transform: scale(0.94); }
+      81.5% { opacity: 1; visibility: visible; transform: scale(1); }
+      98% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    /* Scene 1 Styles */
+    .hook-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #121212;
+      color: #FFF;
+      padding: 8px 24px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 3px solid #121212;
+      box-shadow: 6px 6px 0px 0px #D02020;
+      margin-bottom: 28px;
+    }
+
+    .hook-title {
+      font-size: 104px;
+      font-weight: 900;
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .hook-accent {
+      background: #D02020;
+      color: #FFF;
+      padding: 0 20px;
+      display: inline-block;
+      transform: rotate(-1.5deg);
+      border: 6px solid #121212;
+      box-shadow: 10px 10px 0px 0px #121212;
+    }
+
+    .hook-sub {
+      font-size: 26px;
+      font-weight: 600;
+      color: #62666D;
+      text-align: center;
+      max-width: 860px;
+    }
+
+    /* Scene 2 Styles */
+    .attack-box {
+      width: 1100px;
+      background: #F0F0F0;
+      border: 5px solid #121212;
+      box-shadow: 12px 12px 0px 0px #121212;
+      padding: 36px;
+    }
+
+    .input-bar {
+      background: #FFF;
+      border: 4px solid #121212;
+      padding: 20px 24px;
+      font-family: monospace;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: inset 3px 3px 0px 0px rgba(0,0,0,0.1);
+    }
+
+    .alert-banner {
+      background: #D02020;
+      color: #FFF;
+      border: 4px solid #121212;
+      padding: 24px;
+      box-shadow: 8px 8px 0px 0px #121212;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Scene 3 Styles: Matrix */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      width: 1200px;
+      margin-top: 24px;
+    }
+
+    .matrix-card {
+      background: #F0F0F0;
+      border: 4px solid #121212;
+      padding: 24px 28px;
+      box-shadow: 8px 8px 0px 0px #121212;
+    }
+
+    /* Scene 4 Styles: Meter & Dossier */
+    .dossier-wrap {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      background: #FFF;
+      border: 5px solid #121212;
+      padding: 40px 60px;
+      box-shadow: 14px 14px 0px 0px #121212;
+      width: 1150px;
+    }
+
+    .meter-box {
+      width: 200px;
+      height: 200px;
+      border: 6px solid #121212;
+      background: #F0F0F0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 6px 6px 0px 0px #121212;
+      flex-shrink: 0;
+    }
+
+    /* Scene 5 Styles: Outro */
+    .outro-card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-triad {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .logo-triad div {
+      width: 36px;
+      height: 36px;
+      border: 4px solid #121212;
+    }
+
+    .logo-triad .c1 { background: #D02020; border-radius: 50%; }
+    .logo-triad .c2 { background: #F0C020; }
+    .logo-triad .c3 { background: #1040C0; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+
+    /* Timeline progress indicator */
+    .timeline-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 10px;
+      background: #D02020;
+      animation: progressAnim 18.5s linear infinite;
+    }
+
+    @keyframes progressAnim {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+<body data-duration="18.5">
+  <div class="bg-grid"></div>
+
+  <!-- Audio track -->
+  <audio id="bg-music" src="assets/music/happy-beats-business-moves-vol-10-by-ende-dot-app.mp3" autoplay loop></audio>
+
+  <div class="viewport-frame">
+    
+    <!-- SCENE 1: HOOK (0s - 3.2s) -->
+    <div id="scene-1" class="scene">
+      <div class="hook-badge">
+        <span style="width: 12px; height: 12px; background: #D02020; display: inline-block;"></span>
+        <span>FORM FOLLOWS FUNCTION • CLIENT-SIDE INTELLIGENCE</span>
+      </div>
+      <h1 class="hook-title">
+        INSPECT BEFORE <br/>
+        <span class="hook-accent">YOU CLICK.</span>
+      </h1>
+      <p class="hook-sub">
+        Phishing attacks evolved with networking loopholes and homoglyphs. Antivirus didn't.
+      </p>
+    </div>
+
+    <!-- SCENE 2: ATTACK LOOPHOLE TRAP (3.2s - 6.8s) -->
+    <div id="scene-2" class="scene">
+      <div style="font-size: 16px; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; color: #D02020;">
+        EVASION VECTOR DETECTED • RFC 3986 DEFENDER
+      </div>
+      <div class="attack-box">
+        <div class="input-bar">
+          <span>https://<strong style="color: #1040C0;">paypal.com:account-auth</strong>@<span style="color: #D02020; text-decoration: underline;">malicious-drop.xyz</span>/login</span>
+          <span style="background: #D02020; color: #FFF; font-size: 14px; padding: 4px 12px; font-weight: 900;">TRAPPED</span>
+        </div>
+        <div class="alert-banner">
+          <div style="font-size: 40px;">⚠️</div>
+          <div>
+            <div style="font-size: 20px; font-weight: 900; text-transform: uppercase;">
+              CREDENTIAL INJECTION (@ AUTHORITY LOOPHOLE) INTERCEPTED
+            </div>
+            <div style="font-size: 16px; font-weight: 600; opacity: 0.95; margin-top: 4px;">
+              Attacker disguised "paypal.com" as userinfo. Real destination: <strong>malicious-drop.xyz</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 3: ALGORITHMIC MATRIX (6.8s - 11.2s) -->
+    <div id="scene-3" class="scene">
+      <div style="font-size: 16px; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">
+        ALGORITHMIC VERIFICATION MATRIX • ON-DEVICE MATHEMATICAL INFERENCE
+      </div>
+      <h2 style="font-size: 44px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em;">
+        4 INDEPENDENT DEFENSE ENGINES
+      </h2>
+      <div class="matrix-grid">
+        <div class="matrix-card">
+          <div style="font-size: 12px; font-weight: 900; color: #D02020; text-transform: uppercase;">MACHINE LEARNING</div>
+          <div style="font-size: 22px; font-weight: 900; margin: 6px 0;">Ensemble Classifier</div>
+          <div style="font-size: 14px; color: #62666D; font-weight: 600;">Logistic Regression & Naive Bayes computed 94% risk probability.</div>
+          <div style="margin-top: 12px; font-family: monospace; font-weight: 900; font-size: 14px; color: #D02020;">P = 94% MALICIOUS (0.8ms)</div>
+        </div>
+        <div class="matrix-card">
+          <div style="font-size: 12px; font-weight: 900; color: #1040C0; text-transform: uppercase;">CRYPTOGRAPHIC PROBE</div>
+          <div style="font-size: 22px; font-weight: 900; margin: 6px 0;">Shannon Entropy Probe</div>
+          <div style="font-size: 14px; color: #62666D; font-weight: 600;">Trapped high algorithmic randomness in hostname tokens.</div>
+          <div style="margin-top: 12px; font-family: monospace; font-weight: 900; font-size: 14px; color: #1040C0;">H = 4.38 BITS / CHAR</div>
+        </div>
+        <div class="matrix-card">
+          <div style="font-size: 12px; font-weight: 900; color: #F0C020; text-transform: uppercase;">LEXICAL RADAR</div>
+          <div style="font-size: 22px; font-weight: 900; margin: 6px 0;">Levenshtein Proximity</div>
+          <div style="font-size: 14px; color: #62666D; font-weight: 600;">1-2 edit distance typosquatting matched against 100+ global brands.</div>
+          <div style="margin-top: 12px; font-family: monospace; font-weight: 900; font-size: 14px; color: #121212;">COLLISION: d = 1 (PAYPAL)</div>
+        </div>
+        <div class="matrix-card">
+          <div style="font-size: 12px; font-weight: 900; color: #121212; text-transform: uppercase;">NETWORK DEFENDER</div>
+          <div style="font-size: 22px; font-weight: 900; margin: 6px 0;">RFC 3986 Loophole Trap</div>
+          <div style="font-size: 14px; color: #62666D; font-weight: 600;">De-cloaked DWORD/Hex IPs, open redirects, and invisible Unicode.</div>
+          <div style="margin-top: 12px; font-family: monospace; font-weight: 900; font-size: 14px; color: #D02020;">8/8 EVASION VECTORS BLOCKED</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 4: DIAGNOSTIC DOSSIER & ZERO RETENTION (11.2s - 15.0s) -->
+    <div id="scene-4" class="scene">
+      <div class="dossier-wrap">
+        <div class="meter-box">
+          <span style="font-size: 64px; font-weight: 900; font-family: monospace; color: #D02020; line-height: 1;">94</span>
+          <span style="font-size: 14px; font-weight: 900; letter-spacing: 0.1em; color: #121212;">THREAT SCORE</span>
+        </div>
+        <div style="space-y: 12px;">
+          <div style="display: inline-block; background: #D02020; color: #FFF; font-weight: 900; font-size: 16px; padding: 6px 16px; border: 3px solid #121212; box-shadow: 4px 4px 0px 0px #121212;">
+            DANGEROUS PHISHING THREAT
+          </div>
+          <h3 style="font-size: 36px; font-weight: 900; text-transform: uppercase; margin: 10px 0 6px 0;">
+            Deception Signature Confirmed
+          </h3>
+          <p style="font-size: 18px; font-weight: 600; color: #62666D; max-width: 640px; line-height: 1.4;">
+            Pre-Click Phone Screen Guardian gate actively blocked navigation.
+          </p>
+          <div style="display: inline-flex; align-items: center; gap: 10px; background: #FFF9C4; border: 3px solid #121212; padding: 8px 16px; margin-top: 14px; font-size: 14px; font-weight: 900; text-transform: uppercase; box-shadow: 4px 4px 0px 0px #121212;">
+            <span>🔒 ZERO-DATA STORAGE: ALL INFO VANISHES AFTER CHECK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENE 5: OUTRO & LAUNCH ATTRIBUTION (15.0s - 18.5s) -->
+    <div id="scene-5" class="scene">
+      <div class="outro-card">
+        <div class="logo-triad">
+          <div class="c1"></div>
+          <div class="c2"></div>
+          <div class="c3"></div>
+        </div>
+        <h1 style="font-size: 80px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.95;">
+          ISITLEGIT
+        </h1>
+        <p style="font-size: 22px; font-weight: 700; text-transform: uppercase; color: #62666D; letter-spacing: 0.05em;">
+          Instant Fact, Scam & Link Intelligence
+        </p>
+        <div style="display: inline-flex; align-items: center; gap: 12px; background: #1040C0; color: #FFF; padding: 12px 32px; border: 4px solid #121212; font-size: 20px; font-weight: 900; text-transform: uppercase; box-shadow: 8px 8px 0px 0px #121212; margin-top: 12px;">
+          <span>sachinn-alt.github.io/isitlegit</span>
+        </div>
+        <div style="font-size: 16px; font-weight: 800; font-family: monospace; color: #121212; margin-top: 16px;">
+          Engineered by Sachin Kumar Singh (@sachinn-alt) • 100% Open Source MIT
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom timeline indicator -->
+    <div class="timeline-bar"></div>
+  </div>
+
+  <script>
+    // Ensure audio playback starts on interaction or autoplay
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bg-music');
+      if (audio) {
+        audio.volume = 0.75;
+        audio.play().catch(() => {
+          window.addEventListener('click', () => audio.play(), { once: true });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
