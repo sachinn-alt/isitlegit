@@ -10,6 +10,10 @@ const DEFAULT_SETTINGS: AppSettings = {
   onboardingCompleted: false,
   useLiveSearchGrounding: true,
   awsRegion: 'us-east-1',
+  linkGuardianEnabled: true,
+  guardianPermissionGranted: false,
+  mlSensitivity: 'standard',
+  soundAlertsEnabled: true,
 };
 
 export function useSettings() {
@@ -44,6 +48,10 @@ export function useSettings() {
             notificationsEnabled: !!parsed.notificationsEnabled,
             onboardingCompleted: !!parsed.onboardingCompleted,
             useLiveSearchGrounding: parsed.useLiveSearchGrounding ?? true,
+            linkGuardianEnabled: parsed.linkGuardianEnabled !== undefined ? !!parsed.linkGuardianEnabled : true,
+            guardianPermissionGranted: !!parsed.guardianPermissionGranted,
+            mlSensitivity: parsed.mlSensitivity || 'standard',
+            soundAlertsEnabled: parsed.soundAlertsEnabled !== undefined ? !!parsed.soundAlertsEnabled : true,
             geminiApiKey: decryptedGemini,
             virusTotalApiKey: decryptedVT,
             safeBrowsingApiKey: decryptedSB,
@@ -89,6 +97,10 @@ export function useSettings() {
         notificationsEnabled: updated.notificationsEnabled,
         onboardingCompleted: updated.onboardingCompleted,
         useLiveSearchGrounding: updated.useLiveSearchGrounding,
+        linkGuardianEnabled: updated.linkGuardianEnabled,
+        guardianPermissionGranted: updated.guardianPermissionGranted,
+        mlSensitivity: updated.mlSensitivity,
+        soundAlertsEnabled: updated.soundAlertsEnabled,
         awsRegion: updated.awsRegion || 'us-east-1',
         geminiApiKeyEnc,
         virusTotalApiKeyEnc,

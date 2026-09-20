@@ -10,6 +10,7 @@ import { SettingsPage } from '@/pages/SettingsPage';
 import { QuizPage } from '@/pages/QuizPage';
 import { EmergencyPage } from '@/pages/EmergencyPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+import { PhoneScreenGuardian } from '@/components/guardian/PhoneScreenGuardian';
 import { Toaster } from 'sonner';
 
 export function App() {
@@ -33,6 +34,7 @@ export function App() {
 
         <Footer />
         <MobileNav />
+        <PhoneScreenGuardian />
         <SetupWizard />
         <Toaster position="top-right" theme="light" richColors />
       </div>

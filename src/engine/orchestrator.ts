@@ -10,6 +10,7 @@ import { checkSafeBrowsing } from '@/services/safe-browsing';
 import { checkRdap } from '@/services/rdap';
 import { parseUrl } from '@/utils/url';
 import { analyzeWithAmazonBedrock } from '@/services/bedrock';
+import { classifyPayloadML } from './ml-phishing-classifier';
 
 export interface ScanOptions {
   input: string;
@@ -85,7 +86,43 @@ export async function runThreatAnalysis(options: ScanOptions): Promise<ScanResul
     }
   }
 
-  // 3. Parallel external intelligence lookups
+  // 3. Client-side Machine Learning Ensemble Classifier (Real Logistic Regression & Naive Bayes)
+  onProgress?.('Executing Machine Learning statistical inference (Entropy & Weights)...', 55);
+  const mlResult = classifyPayloadML(textToInspect, targetUrl);
+  enginesUsed.push('Ensemble ML Classifier (Logistic/Bayes)');
+
+  if (mlResult.probability >= 0.70) {
+    findings.push({
+      id: 'ml-high-confidence-phishing',
+      title: `Machine Learning Phishing Alert (${Math.round(mlResult.probability * 100)}% Risk)`,
+      description: `Client-side ML model computed high confidence of malicious deception based on ${mlResult.topFeatures.length} weighted statistical features: ${mlResult.topFeatures.map(f => f.name).join(', ')}.`,
+      severity: 'critical',
+      category: 'reputation',
+      evidence: `P = ${Math.round(mlResult.probability * 100)}% (${mlResult.inferenceTimeMs}ms inference)`,
+      whySuspicious: 'Statistical combination of lexical patterns, domain morphology, and keyword distribution matches known phishing attacks.',
+    });
+  } else if (mlResult.probability >= 0.45) {
+    findings.push({
+      id: 'ml-suspicious-pattern',
+      title: `ML Model Flagged Elevated Risk Signals (${Math.round(mlResult.probability * 100)}% Probability)`,
+      description: `Statistical classifier identified anomaly signals: ${mlResult.topFeatures.filter(f => f.impact !== 'SAFE').map(f => f.name).join(', ') || 'Unusual token entropy'}.`,
+      severity: 'high',
+      category: 'reputation',
+      evidence: `P = ${Math.round(mlResult.probability * 100)}%`,
+    });
+  } else if (mlResult.probability <= 0.15 && isVerifiedEntity) {
+    findings.push({
+      id: 'ml-benign-verified',
+      title: 'ML Model Confirms Legitimate Baseline',
+      description: 'The machine learning classifier evaluated zero high-risk anomalies and verified legitimate domain alignment.',
+      severity: 'info',
+      category: 'reputation',
+      isLegitimacyIndicator: true,
+      evidence: `P = ${Math.round(mlResult.probability * 100)}% threat score`,
+    });
+  }
+
+  // 4. Parallel external intelligence lookups
   onProgress?.('Querying threat databases and domain registries in parallel...', 65);
   const parallelPromises: Promise<any>[] = [];
 

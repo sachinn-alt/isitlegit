@@ -95,6 +95,10 @@ export interface AppSettings {
   notificationsEnabled: boolean;
   onboardingCompleted: boolean;
   useLiveSearchGrounding: boolean;
+  linkGuardianEnabled?: boolean;
+  guardianPermissionGranted?: boolean;
+  mlSensitivity?: 'standard' | 'high' | 'paranoid';
+  soundAlertsEnabled?: boolean;
 }
 
 export interface SEOProps {
