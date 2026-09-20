@@ -1,4 +1,0 @@
-Built IsItLegit: an on-device, zero-retention cybersecurity engine that detects weaponized links and phishing attacks before you click. Powered by client-side ML and RFC 3986 network loophole defense with zero server logging.
-
-Check it out: https://sachinn-alt.github.io/isitlegit/
-Engineered by Sachin Kumar Singh (@sachinn-alt) • 100% Open Source
