@@ -4,7 +4,6 @@ import {
   Fingerprint, 
   Binary, 
   CheckCircle2, 
-  XCircle, 
   ArrowRight
 } from 'lucide-react';
 import { ScanType } from '@/types';
@@ -15,174 +14,229 @@ interface FeatureShowcaseProps {
 
 export const FeatureShowcase = ({ onSelectSample }: FeatureShowcaseProps) => {
   return (
-    <div className="w-full max-w-[1200px] mx-auto space-y-16 pt-10 pb-16">
-      {/* Section Header */}
-      <div className="space-y-2 max-w-xl">
-        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[4px] bg-[#161718] border border-[#23252a] text-[11px] font-mono text-[#8a8f98]">
-          <span>INTELLIGENCE CORE</span>
+    <div className="w-full max-w-7xl mx-auto space-y-16 pt-8 pb-16">
+      
+      {/* Section Header with Bauhaus Geometry */}
+      <div className="space-y-3 max-w-2xl">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1040C0] text-white border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-widest">
+          <span className="w-2 h-2 rounded-full bg-white" />
+          <span>FOUR PILLARS OF DEFENSE</span>
         </div>
-        <h2 className="text-[28px] sm:text-[32px] font-[510] tracking-[-0.022em] text-[#ffffff] leading-[1.15]">
-          Zero-click structural analysis
+
+        <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-[#121212] leading-[0.95]">
+          CONSTRUCTIVIST ARCHITECTURE
         </h2>
-        <p className="text-[15px] text-[#8a8f98] leading-[1.6] tracking-[-0.011em]">
-          Modern phishing exploits urgency, unicode homoglyphs, and lookalike domain registries. IsItLegit inspects the payload structure before browser navigation occurs.
+
+        <p className="text-base sm:text-lg font-medium text-[#121212] leading-relaxed">
+          Phishing attacks rely on cognitive overload and visual mimicry. IsItLegit decomposes incoming payloads into fundamental mathematical, cryptographic, and lexical structures.
         </p>
       </div>
 
-      {/* 4-Pillar Grid (Linear Cards: 12px radius, #0f1011 background, hairline #23252a border) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Card 1 */}
-        <div className="rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 space-y-4 hover:border-[#383b3f] transition-colors">
+      {/* 4-Pillar Grid: Bauhaus Cards with Corner Geometric Shapes */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        {/* Card 1: Homoglyphs (Red Corner Circle) */}
+        <div className="relative bg-white border-2 sm:border-4 border-[#121212] p-6 sm:p-8 shadow-[6px_6px_0px_0px_#121212] sm:shadow-[8px_8px_0px_0px_#121212] space-y-4 hover:-translate-y-1 transition-transform">
+          {/* Bauhaus Top-Right Geometric Mark */}
+          <div className="absolute top-4 right-4 w-4 h-4 rounded-full bg-[#D02020] border-2 border-[#121212]" />
+
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-[6px] bg-[#161718] border border-[#23252a] flex items-center justify-center text-[#d0d6e0]">
-              <Binary className="w-4 h-4" />
+            <div className="w-10 h-10 bg-[#D02020] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] flex items-center justify-center text-white">
+              <Binary className="w-5 h-5" strokeWidth={2.5} />
             </div>
-            <span className="text-[11px] font-mono text-[#62666d] uppercase">Layer 01</span>
+            <span className="text-xs font-black uppercase tracking-widest text-[#121212] bg-[#F0F0F0] px-2 py-0.5 border border-[#121212]">
+              LAYER 01
+            </span>
           </div>
+
           <div>
-            <h3 className="text-[16px] font-[510] text-[#ffffff] tracking-[-0.012em]">
+            <h3 className="text-xl font-black uppercase tracking-tight text-[#121212]">
               Homoglyph & Punycode De-cloaker
             </h3>
-            <p className="text-[14px] text-[#8a8f98] leading-relaxed mt-1">
-              Detects Cyrillic, Greek, and Unicode lookalikes crafted to deceive the human eye into perceiving trusted brands.
+            <p className="text-sm font-medium text-[#62666D] leading-relaxed mt-2">
+              Inspects Cyrillic, Greek, and Unicode lookalikes crafted to deceive the human eye into perceiving trusted brands.
             </p>
           </div>
-          <div className="rounded-[6px] bg-[#161718] border border-[#23252a] p-3 font-mono text-[12px] space-y-2">
-            <div className="flex items-center justify-between text-[#eb5757]">
-              <span>Spoofed: <strong className="underline">р</strong>аураl.com</span>
-              <span className="text-[10px] text-[#8a8f98]">U+0440 (Cyrillic)</span>
+
+          <div className="bg-[#F0F0F0] border-2 border-[#121212] p-4 font-mono text-xs space-y-2">
+            <div className="flex items-center justify-between text-[#D02020] font-bold">
+              <span>Spoofed: <strong className="underline decoration-2">р</strong>аураl.com</span>
+              <span className="text-[10px] bg-white px-1.5 py-0.5 border border-[#121212]">U+0440 (CYRILLIC)</span>
             </div>
-            <div className="flex items-center justify-between text-[#27a644]">
+            <div className="flex items-center justify-between text-[#121212] font-bold">
               <span>Genuine: paypal.com</span>
-              <span className="text-[10px] text-[#8a8f98]">U+0070 (Latin)</span>
+              <span className="text-[10px] bg-[#F0C020] px-1.5 py-0.5 border border-[#121212]">U+0070 (LATIN)</span>
             </div>
           </div>
         </div>
 
-        {/* Card 2 */}
-        <div className="rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 space-y-4 hover:border-[#383b3f] transition-colors">
+        {/* Card 2: 2FA Classifier (Yellow Corner Square) */}
+        <div className="relative bg-white border-2 sm:border-4 border-[#121212] p-6 sm:p-8 shadow-[6px_6px_0px_0px_#121212] sm:shadow-[8px_8px_0px_0px_#121212] space-y-4 hover:-translate-y-1 transition-transform">
+          {/* Bauhaus Top-Right Geometric Mark */}
+          <div className="absolute top-4 right-4 w-4 h-4 rounded-none bg-[#F0C020] border-2 border-[#121212]" />
+
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-[6px] bg-[#161718] border border-[#23252a] flex items-center justify-center text-[#d0d6e0]">
-              <ShieldCheck className="w-4 h-4" />
+            <div className="w-10 h-10 bg-[#F0C020] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] flex items-center justify-center text-[#121212]">
+              <ShieldCheck className="w-5 h-5" strokeWidth={2.5} />
             </div>
-            <span className="text-[11px] font-mono text-[#62666d] uppercase">Layer 02</span>
+            <span className="text-xs font-black uppercase tracking-widest text-[#121212] bg-[#F0F0F0] px-2 py-0.5 border border-[#121212]">
+              LAYER 02
+            </span>
           </div>
+
           <div>
-            <h3 className="text-[16px] font-[510] text-[#ffffff] tracking-[-0.012em]">
+            <h3 className="text-xl font-black uppercase tracking-tight text-[#121212]">
               Authentic 2FA & Bank Alert Classifier
             </h3>
-            <p className="text-[14px] text-[#8a8f98] leading-relaxed mt-1">
-              Confirms genuine security alerts from 140+ verified root domains, differentiating authentic bank OTPs from credential harvesting.
+            <p className="text-sm font-medium text-[#62666D] leading-relaxed mt-2">
+              Confirms genuine security warnings and OTP alerts from 140+ verified root institutions, preventing false positives.
             </p>
           </div>
-          <div className="rounded-[6px] bg-[#161718] border border-[#23252a] p-3 text-[12px] text-[#d0d6e0] space-y-1.5 font-normal">
+
+          <div className="bg-[#FFF9C4] border-2 border-[#121212] p-4 text-xs font-bold text-[#121212] space-y-2">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#27a644]" />
-              <span>Verifies official transactional alert root domains</span>
+              <span className="w-2.5 h-2.5 bg-[#121212]" />
+              <span>Verifies legitimate institutional shortcode patterns</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#eb5757]" />
-              <span>Detects social engineering urging phone disclosure</span>
+              <span className="w-2.5 h-2.5 bg-[#D02020]" />
+              <span>Detects social engineering urging password disclosure</span>
             </div>
           </div>
         </div>
 
-        {/* Card 3 */}
-        <div className="rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 space-y-4 hover:border-[#383b3f] transition-colors">
+        {/* Card 3: Shannon Entropy (Blue Corner Triangle) */}
+        <div className="relative bg-white border-2 sm:border-4 border-[#121212] p-6 sm:p-8 shadow-[6px_6px_0px_0px_#121212] sm:shadow-[8px_8px_0px_0px_#121212] space-y-4 hover:-translate-y-1 transition-transform">
+          {/* Bauhaus Top-Right Geometric Mark */}
+          <div className="absolute top-4 right-4 w-4 h-4 clip-triangle bg-[#1040C0] border-2 border-[#121212]" />
+
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-[6px] bg-[#161718] border border-[#23252a] flex items-center justify-center text-[#d0d6e0]">
-              <Fingerprint className="w-4 h-4" />
+            <div className="w-10 h-10 bg-[#1040C0] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] flex items-center justify-center text-white">
+              <Fingerprint className="w-5 h-5" strokeWidth={2.5} />
             </div>
-            <span className="text-[11px] font-mono text-[#62666d] uppercase">Layer 03</span>
+            <span className="text-xs font-black uppercase tracking-widest text-[#121212] bg-[#F0F0F0] px-2 py-0.5 border border-[#121212]">
+              LAYER 03
+            </span>
           </div>
+
           <div>
-            <h3 className="text-[16px] font-[510] text-[#ffffff] tracking-[-0.012em]">
+            <h3 className="text-xl font-black uppercase tracking-tight text-[#121212]">
               Shannon Entropy & Subdomain Probe
             </h3>
-            <p className="text-[14px] text-[#8a8f98] leading-relaxed mt-1">
-              Phishing kits automatically generate randomized alphanumeric strings. Our entropy engine calculates machine randomness in subdomains.
+            <p className="text-sm font-medium text-[#62666D] leading-relaxed mt-2">
+              Automated phishing toolkits randomize alphanumeric subdomains. Our entropy mathematics flag non-human generation.
             </p>
           </div>
-          <div className="rounded-[6px] bg-[#161718] border border-[#23252a] p-3 font-mono text-[12px] space-y-1.5">
-            <div className="flex justify-between text-[#8a8f98]">
+
+          <div className="bg-[#F0F0F0] border-2 border-[#121212] p-4 font-mono text-xs space-y-2">
+            <div className="flex justify-between font-bold text-[#121212]">
               <span>Randomness index:</span>
-              <span className="text-[#eb5757]">4.82 bits / high entropy</span>
+              <span className="text-[#D02020] bg-white px-2 py-0.5 border border-[#121212]">
+                4.82 BITS (HIGH RISK)
+              </span>
             </div>
-            <div className="w-full bg-[#08090a] h-1.5 rounded-full overflow-hidden">
-              <div className="bg-[#eb5757] w-[80%] h-full rounded-full" />
+            <div className="w-full bg-white h-3 border-2 border-[#121212] p-0.5">
+              <div className="bg-[#D02020] w-[80%] h-full" />
             </div>
           </div>
         </div>
 
-        {/* Card 4 */}
-        <div className="rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 space-y-4 hover:border-[#383b3f] transition-colors">
+        {/* Card 4: Web Crypto (Yellow Corner Square) */}
+        <div className="relative bg-white border-2 sm:border-4 border-[#121212] p-6 sm:p-8 shadow-[6px_6px_0px_0px_#121212] sm:shadow-[8px_8px_0px_0px_#121212] space-y-4 hover:-translate-y-1 transition-transform">
+          {/* Bauhaus Top-Right Geometric Mark */}
+          <div className="absolute top-4 right-4 w-4 h-4 rounded-full bg-[#121212] border-2 border-white" />
+
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-[6px] bg-[#161718] border border-[#23252a] flex items-center justify-center text-[#d0d6e0]">
-              <EyeOff className="w-4 h-4" />
+            <div className="w-10 h-10 bg-[#121212] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#F0C020] flex items-center justify-center text-white">
+              <EyeOff className="w-5 h-5" strokeWidth={2.5} />
             </div>
-            <span className="text-[11px] font-mono text-[#62666d] uppercase">Layer 04</span>
+            <span className="text-xs font-black uppercase tracking-widest text-[#121212] bg-[#F0F0F0] px-2 py-0.5 border border-[#121212]">
+              LAYER 04
+            </span>
           </div>
+
           <div>
-            <h3 className="text-[16px] font-[510] text-[#ffffff] tracking-[-0.012em]">
+            <h3 className="text-xl font-black uppercase tracking-tight text-[#121212]">
               Hardware Web Crypto Sandbox
             </h3>
-            <p className="text-[14px] text-[#8a8f98] leading-relaxed mt-1">
-              Zero remote telemetry. User queries and credentials remain local, encrypted in-browser using AES-GCM 256 with PBKDF2 keys.
+            <p className="text-sm font-medium text-[#62666D] leading-relaxed mt-2">
+              Absolute zero remote logging. Scanned passwords, tokens, and payloads are processed in memory and encrypted locally using AES-GCM.
             </p>
           </div>
-          <div className="rounded-[6px] bg-[#161718] border border-[#23252a] p-3 text-[12px] text-[#8a8f98] font-mono">
-            <span>Storage: IndexedDB (Client-Side Only)</span>
+
+          <div className="bg-[#F0C020] border-2 border-[#121212] p-4 text-xs font-black uppercase tracking-wider text-[#121212]">
+            <span>Storage: IndexedDB Local Sandbox (Offline-First)</span>
           </div>
         </div>
       </div>
 
-      {/* Comparison Table (Precision Linear Layout) */}
-      <div className="rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 sm:p-8 space-y-5">
+      {/* Comparison Table (Constructivist Bauhaus Grid) */}
+      <div className="bg-white border-2 sm:border-4 border-[#121212] p-6 sm:p-10 shadow-[6px_6px_0px_0px_#121212] sm:shadow-[8px_8px_0px_0px_#121212] space-y-6">
         <div>
-          <h3 className="text-[18px] font-[510] text-[#ffffff] tracking-[-0.015em]">
-            Traditional Blacklists vs IsItLegit
+          <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#121212]">
+            CONSTRUCTIVIST BENCHMARK
           </h3>
-          <p className="text-[14px] text-[#8a8f98]">
-            Comparison of architectural capabilities for link and alert inspection.
+          <p className="text-sm font-bold uppercase text-[#62666D] mt-1">
+            Traditional cloud blacklists vs IsItLegit local algorithmic forensics
           </p>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-[13px] border-collapse">
+          <table className="w-full text-left text-sm border-collapse border-2 border-[#121212]">
             <thead>
-              <tr className="border-b border-[#23252a] text-[#8a8f98] font-mono text-[11px] uppercase tracking-wider">
-                <th className="py-2.5 px-3 font-normal">Capability</th>
-                <th className="py-2.5 px-3 font-normal">Traditional Antivirus</th>
-                <th className="py-2.5 px-3 font-normal text-[#ffffff]">IsItLegit</th>
+              <tr className="bg-[#121212] text-white font-black uppercase tracking-wider text-xs">
+                <th className="py-3 px-4 border-2 border-[#121212]">Capability</th>
+                <th className="py-3 px-4 border-2 border-[#121212] text-[#E0E0E0]">Legacy Antivirus</th>
+                <th className="py-3 px-4 border-2 border-[#121212] text-[#F0C020] bg-[#1040C0]">IsItLegit Bauhaus</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#23252a]/70 font-normal">
-              <tr>
-                <td className="py-3 px-3 text-[#ffffff]">Zero-click payload inspection</td>
-                <td className="py-3 px-3 text-[#8a8f98]">Usually requires opening link</td>
-                <td className="py-3 px-3 text-[#27a644] font-medium flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Full offline dissection
+            <tbody className="font-medium text-xs sm:text-sm">
+              <tr className="bg-white border-b-2 border-[#121212]">
+                <td className="py-3.5 px-4 font-bold text-[#121212] border-r-2 border-[#121212]">
+                  Zero-Click Payload Inspection
+                </td>
+                <td className="py-3.5 px-4 text-[#62666D] border-r-2 border-[#121212]">
+                  Requires opening malicious link
+                </td>
+                <td className="py-3.5 px-4 text-[#121212] font-black bg-[#FFF9C4] flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#121212]" strokeWidth={3} />
+                  <span>100% Offline Static Dissection</span>
                 </td>
               </tr>
-              <tr>
-                <td className="py-3 px-3 text-[#ffffff]">Authentic bank 2FA recognition</td>
-                <td className="py-3 px-3 text-[#8a8f98]">Flags all alerts as suspicious</td>
-                <td className="py-3 px-3 text-[#27a644] font-medium flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Confirms official sender roots
+              <tr className="bg-[#F0F0F0] border-b-2 border-[#121212]">
+                <td className="py-3.5 px-4 font-bold text-[#121212] border-r-2 border-[#121212]">
+                  Authentic 2FA Recognition
+                </td>
+                <td className="py-3.5 px-4 text-[#62666D] border-r-2 border-[#121212]">
+                  Treats all security alerts as phishing
+                </td>
+                <td className="py-3.5 px-4 text-[#121212] font-black bg-[#FFF9C4] flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#121212]" strokeWidth={3} />
+                  <span>Whitelists 140+ Banking Roots</span>
                 </td>
               </tr>
-              <tr>
-                <td className="py-3 px-3 text-[#ffffff]">Day-zero registration heuristics</td>
-                <td className="py-3 px-3 text-[#8a8f98]">Delayed until feed updates</td>
-                <td className="py-3 px-3 text-[#27a644] font-medium flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Client-side RDAP age query
+              <tr className="bg-white border-b-2 border-[#121212]">
+                <td className="py-3.5 px-4 font-bold text-[#121212] border-r-2 border-[#121212]">
+                  Day-Zero Domain Detection
+                </td>
+                <td className="py-3.5 px-4 text-[#62666D] border-r-2 border-[#121212]">
+                  Delayed hours until cloud database syncs
+                </td>
+                <td className="py-3.5 px-4 text-[#121212] font-black bg-[#FFF9C4] flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#121212]" strokeWidth={3} />
+                  <span>Real-time RDAP Epoch Analysis</span>
                 </td>
               </tr>
-              <tr>
-                <td className="py-3 px-3 text-[#ffffff]">WhatsApp / Telegram Share Target</td>
-                <td className="py-3 px-3 text-[#8a8f98]">Not integrated</td>
-                <td className="py-3 px-3 text-[#27a644] font-medium flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Native PWA share support
+              <tr className="bg-[#F0F0F0]">
+                <td className="py-3.5 px-4 font-bold text-[#121212] border-r-2 border-[#121212]">
+                  PWA Mobile Share Target
+                </td>
+                <td className="py-3.5 px-4 text-[#62666D] border-r-2 border-[#121212]">
+                  Requires desktop extension
+                </td>
+                <td className="py-3.5 px-4 text-[#121212] font-black bg-[#FFF9C4] flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#121212]" strokeWidth={3} />
+                  <span>Share direct from WhatsApp/SMS</span>
                 </td>
               </tr>
             </tbody>
@@ -190,14 +244,14 @@ export const FeatureShowcase = ({ onSelectSample }: FeatureShowcaseProps) => {
         </div>
       </div>
 
-      {/* Secondary Trigger Banner */}
-      <div className="rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h4 className="text-[15px] font-[510] text-[#ffffff] tracking-[-0.011em]">
-            Test with a live phishing scenario
+      {/* Bauhaus Color-Blocked Callout (Yellow Background) */}
+      <div className="bg-[#F0C020] border-2 sm:border-4 border-[#121212] p-8 shadow-[6px_6px_0px_0px_#121212] sm:shadow-[8px_8px_0px_0px_#121212] flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="space-y-1">
+          <h4 className="text-2xl font-black uppercase tracking-tight text-[#121212]">
+            TEST A SIMULATED PHISHING PAYLOAD
           </h4>
-          <p className="text-[13px] text-[#8a8f98] mt-0.5">
-            Load an automated test case into the engine without risking your personal data.
+          <p className="text-sm font-bold text-[#121212]">
+            Execute a test scenario safely without risking personal data or credentials.
           </p>
         </div>
 
@@ -208,12 +262,12 @@ export const FeatureShowcase = ({ onSelectSample }: FeatureShowcaseProps) => {
               'url',
               'http://раураl.com-verify.account-security.xyz/login?session=928a'
             );
-            window.scrollTo({ top: 80, behavior: 'smooth' });
+            window.scrollTo({ top: 120, behavior: 'smooth' });
           }}
-          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[6px] bg-[#161718] hover:bg-[#23252a] border border-[#23252a] text-[13px] text-[#d0d6e0] transition-colors cursor-pointer shrink-0"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#D02020] hover:bg-[#b01818] text-white border-2 border-[#121212] shadow-[4px_4px_0px_0px_#121212] text-sm font-black uppercase tracking-wider transition-all cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shrink-0"
         >
-          <span>Run PayPal Homoglyph Test</span>
-          <ArrowRight className="w-3.5 h-3.5 text-[#8a8f98]" />
+          <span>RUN HOMOGLYPH TEST</span>
+          <ArrowRight className="w-4 h-4 text-white" strokeWidth={3} />
         </button>
       </div>
     </div>

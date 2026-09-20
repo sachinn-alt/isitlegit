@@ -23,11 +23,11 @@ export const ScanPage = () => {
   const scanSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'IsItLegit Threat & Legitimacy Scanner',
+    name: 'IsItLegit Bauhaus Security Engine',
     applicationCategory: 'SecurityApplication',
     operatingSystem: 'All',
     url: 'https://isitlegit.app/',
-    description: 'Zero-click security intelligence engine differentiating authentic alerts from phishing scams.',
+    description: 'Constructivist security intelligence engine differentiating authentic alerts from phishing scams.',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -40,7 +40,7 @@ export const ScanPage = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-[1200px] px-4 sm:px-6 py-10 space-y-12 bg-[#08090a]">
+    <div className="container mx-auto max-w-7xl px-4 sm:px-8 py-8 sm:py-12 space-y-12">
       <SEOHead
         title="IsItLegit — Instant Fact, Scam & Link Checker"
         description="Verify suspicious links, phishing emails, SMS alerts, and screenshots instantly. Differentiates genuine security warnings and bank OTPs from scams with zero server logging."
@@ -50,59 +50,69 @@ export const ScanPage = () => {
 
       <Breadcrumbs items={[]} />
 
-      {/* Linear Precision Hero Block */}
-      <div className="space-y-3 max-w-2xl mx-auto text-center pt-2 pb-2">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-[#0f1011] border border-[#23252a] text-[11px] font-mono text-[#8a8f98]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#27a644]" />
-          <span>CYBERNETIC PAYLOAD INSPECTION</span>
+      {/* Bauhaus Constructivist Poster Hero */}
+      <div className="relative max-w-5xl mx-auto text-center space-y-6 pt-4 pb-4">
+        
+        {/* Decorative Geometric Trio Accent */}
+        <div className="flex items-center justify-center gap-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#121212] text-white border-2 border-[#121212] shadow-[3px_3px_0px_0px_#D02020] text-xs font-black uppercase tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-[#D02020]" />
+            <span>FORM FOLLOWS FUNCTION</span>
+          </div>
+
+          <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1 bg-[#F0C020] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-widest">
+            <span>ZERO REMOTE LOGS</span>
+          </div>
         </div>
 
-        <h1 className="text-[36px] sm:text-[48px] lg:text-[56px] font-[510] tracking-[-0.022em] text-[#ffffff] leading-[1.05]">
-          Inspect threats before you click.
+        {/* Massive Constructivist Headline */}
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter text-[#121212] uppercase leading-[0.92]">
+          INSPECT BEFORE <span className="bg-[#D02020] text-white px-2 py-0.5 inline-block -rotate-1 border-2 sm:border-4 border-[#121212] shadow-[4px_4px_0px_0px_#121212]">YOU CLICK.</span>
         </h1>
 
-        <p className="text-[15px] sm:text-[16px] text-[#8a8f98] leading-[1.5] max-w-xl mx-auto">
-          Dissect deceptive links, phishing emails, smishing texts, and OTP alerts. Run homoglyph forensics, entropy analysis, and bank legitimacy validation on-device.
+        {/* Subhead with geometric punch */}
+        <p className="text-base sm:text-xl font-medium text-[#121212] leading-relaxed max-w-2xl mx-auto">
+          Dissect weaponized links, fake bank SMS alerts, homoglyph lookalikes, and OTP smishing. Verified through on-device cryptographic heuristics.
         </p>
       </div>
 
-      {/* Precision Input Console */}
+      {/* Bauhaus Console Input */}
       <ScanInput 
         onScan={analyze} 
         isScanning={isScanning} 
         externalDemo={externalDemo} 
       />
 
-      {/* Scanning Progress Bar */}
+      {/* Scanning Progress Bar in Bauhaus */}
       {isScanning && (
-        <div className="max-w-[840px] mx-auto">
+        <div className="max-w-4xl mx-auto">
           <ScanProgress stage={progressStage} percent={progressPercent} />
         </div>
       )}
 
       {/* Error Message */}
       {error && (
-        <div className="max-w-[840px] mx-auto p-3 rounded-[6px] border border-[#eb5757]/40 bg-[#eb5757]/10 text-[#eb5757] text-[13px] text-center flex items-center justify-center gap-2">
-          <AlertOctagon className="w-4 h-4 shrink-0" />
+        <div className="max-w-4xl mx-auto p-4 bg-[#D02020] text-white border-2 sm:border-4 border-[#121212] shadow-[4px_4px_0px_0px_#121212] text-sm font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2">
+          <AlertOctagon className="w-5 h-5 shrink-0" strokeWidth={3} />
           <span>{error}</span>
         </div>
       )}
 
       {/* Results View */}
       {result && !isScanning ? (
-        <div className="space-y-6 max-w-[840px] mx-auto pt-2">
-          <div className="flex items-center justify-between border-b border-[#23252a] pb-3">
-            <h2 className="text-[17px] font-[510] text-[#ffffff] flex items-center gap-2 tracking-[-0.012em]">
-              <Shield className="w-4 h-4 text-[#ffffff]" />
-              <span>Inspection Dossier</span>
+        <div className="space-y-8 max-w-4xl mx-auto pt-4">
+          <div className="flex items-center justify-between border-b-4 border-[#121212] pb-4">
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#121212] flex items-center gap-3">
+              <span className="w-4 h-4 rounded-full bg-[#D02020] border-2 border-[#121212]" />
+              <span>DIAGNOSTIC DOSSIER</span>
             </h2>
 
             <button
               onClick={reset}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[6px] bg-[#0f1011] hover:bg-[#161718] border border-[#23252a] text-[12px] text-[#d0d6e0] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-none bg-white hover:bg-[#F0C020] border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-bold uppercase tracking-wider text-[#121212] transition-all cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             >
-              <RotateCcw className="w-3 h-3 text-[#8a8f98]" />
-              <span>New Scan</span>
+              <RotateCcw className="w-3.5 h-3.5" strokeWidth={2.5} />
+              <span>NEW INSPECTION</span>
             </button>
           </div>
 

@@ -35,7 +35,7 @@ export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="flex items-center space-x-2 text-xs text-slate-400 py-3 mb-2"
+      className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#121212] py-2 mb-2"
     >
       <script
         type="application/ld+json"
@@ -43,25 +43,25 @@ export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
       />
       <Link
         to="/"
-        className="inline-flex items-center gap-1 hover:text-slate-200 transition-colors"
+        className="inline-flex items-center gap-1.5 px-2 py-1 bg-white border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] hover:bg-[#F0C020] transition-colors"
       >
-        <Home className="w-3.5 h-3.5" />
-        <span>Scanner</span>
+        <Home className="w-3.5 h-3.5" strokeWidth={2.5} />
+        <span>CONSOLE</span>
       </Link>
 
       {items.map((item, idx) => {
         const isLast = idx === items.length - 1;
         return (
           <div key={idx} className="flex items-center space-x-2">
-            <ChevronRight className="w-3 h-3 text-slate-600" />
+            <ChevronRight className="w-4 h-4 text-[#121212]" strokeWidth={3} />
             {isLast || !item.path ? (
-              <span className="text-slate-200 font-medium" aria-current="page">
+              <span className="px-2 py-1 bg-[#121212] text-white border-2 border-[#121212] shadow-[2px_2px_0px_0px_#D02020]" aria-current="page">
                 {item.label}
               </span>
             ) : (
               <Link
                 to={item.path}
-                className="hover:text-slate-200 transition-colors"
+                className="px-2 py-1 bg-white border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] hover:bg-[#F0C020] transition-colors"
               >
                 {item.label}
               </Link>

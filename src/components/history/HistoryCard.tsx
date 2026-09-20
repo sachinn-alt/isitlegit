@@ -1,8 +1,6 @@
 import { ScanRecord } from '@/types';
-import { Badge } from '@/ui/badge';
-import { Button } from '@/ui/button';
 import { Bookmark, Trash2, ExternalLink, ShieldCheck, ShieldAlert, AlertTriangle } from 'lucide-react';
-import { formatDate, getThreatColor } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 
 interface HistoryCardProps {
   record: ScanRecord;
@@ -17,83 +15,89 @@ export const HistoryCard = ({
   onToggleBookmark,
   onDelete,
 }: HistoryCardProps) => {
-  const colors = getThreatColor(record.verdict);
   const isLegit = record.result.verdictCategory === 'LEGITIMATE';
+  const isMalicious = record.result.verdictCategory === 'MALICIOUS';
+
+  const getCardIconBg = () => {
+    if (isLegit) return 'bg-[#1040C0] text-white';
+    if (isMalicious) return 'bg-[#D02020] text-white';
+    return 'bg-[#F0C020] text-[#121212]';
+  };
+
+  const getVerdictBadgeStyle = () => {
+    if (isLegit) return 'bg-[#FFF9C4] text-[#121212]';
+    if (isMalicious) return 'bg-[#D02020] text-white';
+    return 'bg-[#F0C020] text-[#121212]';
+  };
 
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl border border-slate-800 bg-slate-900/60 hover:bg-slate-900/90 transition-all hover:border-slate-700 backdrop-blur-md">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 bg-white border-2 sm:border-4 border-[#121212] shadow-[4px_4px_0px_0px_#121212] hover:-translate-y-0.5 transition-transform">
       <div
         onClick={() => onSelect(record)}
-        className="flex items-start gap-3.5 cursor-pointer flex-1 min-w-0"
+        className="flex items-start gap-4 cursor-pointer flex-1 min-w-0"
       >
         <div
-          className={`mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${colors.bg} ${colors.text} border ${colors.border}`}
+          className={`mt-1 flex h-10 w-10 shrink-0 items-center justify-center border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] ${getCardIconBg()}`}
         >
           {isLegit ? (
-            <ShieldCheck className="w-5 h-5" />
-          ) : record.verdict === 'DANGEROUS' || record.verdict === 'HIGH_RISK' ? (
-            <ShieldAlert className="w-5 h-5" />
+            <ShieldCheck className="w-5 h-5" strokeWidth={2.5} />
+          ) : isMalicious ? (
+            <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
           ) : (
-            <AlertTriangle className="w-5 h-5" />
+            <AlertTriangle className="w-5 h-5" strokeWidth={2.5} />
           )}
         </div>
 
         <div className="space-y-1 min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
-            <Badge className={`text-[10px] uppercase font-bold py-0.5 px-2 ${colors.badge}`}>
-              {record.result.isLegitimateConfirmed ? 'Authentic' : record.verdict}
-            </Badge>
-            <span className="text-[11px] font-mono text-slate-500 uppercase">
+            <span className={`text-[10px] uppercase font-black py-0.5 px-2 border border-[#121212] ${getVerdictBadgeStyle()}`}>
+              {record.result.isLegitimateConfirmed ? 'AUTHENTIC' : record.verdict}
+            </span>
+            <span className="text-[11px] font-mono font-bold text-[#62666D] uppercase">
               {record.type}
             </span>
-            <span className="text-[11px] text-slate-500">•</span>
-            <span className="text-[11px] text-slate-500">
+            <span className="text-[11px] text-[#62666D]">•</span>
+            <span className="text-[11px] font-mono font-bold text-[#62666D]">
               {formatDate(record.createdAt)}
             </span>
           </div>
 
-          <h4 className="text-sm font-semibold text-slate-200 truncate">
+          <h4 className="text-sm font-black uppercase text-[#121212] truncate">
             {record.inputPreview}
           </h4>
 
-          <p className="text-xs text-slate-400 line-clamp-1">
+          <p className="text-xs font-medium text-[#62666D] line-clamp-1">
             {record.result.summary}
           </p>
         </div>
       </div>
 
-      <div className="flex items-center gap-1 self-end sm:self-center shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-800/80 w-full sm:w-auto justify-end">
-        <Button
-          size="sm"
-          variant="ghost"
+      <div className="flex items-center gap-2 self-end sm:self-center shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-[#121212] w-full sm:w-auto justify-end">
+        <button
           onClick={() => onToggleBookmark(record.id)}
-          className={`h-8 w-8 p-0 rounded-lg ${
-            record.bookmarked ? 'text-amber-400 hover:text-amber-300' : 'text-slate-400 hover:text-white'
+          className={`h-9 w-9 flex items-center justify-center border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] transition-all cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-none ${
+            record.bookmarked ? 'bg-[#F0C020] text-[#121212]' : 'bg-white text-[#121212] hover:bg-[#F0F0F0]'
           }`}
           title={record.bookmarked ? 'Remove Bookmark' : 'Bookmark Scan'}
         >
-          <Bookmark className="w-4 h-4 fill-current" />
-        </Button>
+          <Bookmark className="w-4 h-4" strokeWidth={2.5} fill={record.bookmarked ? '#121212' : 'none'} />
+        </button>
 
-        <Button
-          size="sm"
-          variant="ghost"
+        <button
           onClick={() => onDelete(record.id)}
-          className="h-8 w-8 p-0 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/10"
+          className="h-9 w-9 flex items-center justify-center bg-white hover:bg-[#D02020] hover:text-white text-[#121212] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] transition-all cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
           title="Delete Scan Record"
         >
-          <Trash2 className="w-4 h-4" />
-        </Button>
+          <Trash2 className="w-4 h-4" strokeWidth={2.5} />
+        </button>
 
-        <Button
-          size="sm"
-          variant="outline"
+        <button
           onClick={() => onSelect(record)}
-          className="h-8 px-3 text-xs gap-1 rounded-lg border-slate-700 ml-1"
+          className="h-9 px-3 bg-white hover:bg-[#1040C0] hover:text-white text-[#121212] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
         >
-          <span>View</span>
-          <ExternalLink className="w-3 h-3" />
-        </Button>
+          <span>VIEW</span>
+          <ExternalLink className="w-3.5 h-3.5" strokeWidth={2.5} />
+        </button>
       </div>
     </div>
   );

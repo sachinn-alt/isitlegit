@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Shield, BookOpen, History, Settings as SettingsIcon, Download, KeyRound } from 'lucide-react';
-import { Button } from '@/ui/button';
 import { usePWA } from '@/hooks/usePWA';
 import { useSettings } from '@/hooks/useSettings';
 
@@ -10,45 +9,51 @@ export const Header = () => {
   const { settings } = useSettings();
 
   const navItems = [
-    { label: 'Scanner', path: '/', icon: Shield },
-    { label: 'Scam Guide', path: '/tips', icon: BookOpen },
-    { label: 'History', path: '/history', icon: History },
-    { label: 'Settings', path: '/settings', icon: SettingsIcon },
+    { label: 'SCANNER', path: '/', icon: Shield },
+    { label: 'GUIDE', path: '/tips', icon: BookOpen },
+    { label: 'HISTORY', path: '/history', icon: History },
+    { label: 'SETTINGS', path: '/settings', icon: SettingsIcon },
   ];
 
   const hasCustomApi = !!(settings.geminiApiKey || settings.virusTotalApiKey);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#23252a] bg-[#08090a]/95 backdrop-blur-md">
-      <div className="container mx-auto flex h-14 max-w-[1200px] items-center justify-between px-4 sm:px-6">
-        {/* Brand Logo & Wordmark */}
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[#0f1011] border border-[#23252a] text-white">
-            <Shield className="h-4 w-4 text-white" />
+    <header className="sticky top-0 z-40 w-full border-b-2 sm:border-b-4 border-[#121212] bg-[#F0F0F0] pt-safe">
+      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-8">
+        {/* Brand Logo & Bauhaus Geometric Trio Mark */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="flex items-center gap-1">
+            {/* Bauhaus Circle (Red) */}
+            <div className="w-5 h-5 rounded-full bg-[#D02020] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] group-hover:-translate-y-0.5 transition-transform" />
+            {/* Bauhaus Square (Yellow) */}
+            <div className="w-5 h-5 rounded-none bg-[#F0C020] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] group-hover:-translate-y-0.5 transition-transform delay-75" />
+            {/* Bauhaus Triangle (Blue) */}
+            <div className="w-5 h-5 rounded-none bg-[#1040C0] clip-triangle border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] group-hover:-translate-y-0.5 transition-transform delay-150" />
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[15px] font-[510] tracking-[-0.015em] text-[#ffffff]">
+
+          <div className="flex items-baseline gap-2">
+            <span className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-[#121212]">
               IsItLegit
             </span>
-            <span className="hidden sm:inline-flex px-1.5 py-0.5 rounded-[4px] bg-[#161718] border border-[#23252a] text-[11px] font-mono text-[#8a8f98]">
-              v4.2
+            <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-[#121212] text-white rounded-none border border-[#121212]">
+              BAUHAUS 4.2
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-2">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-1.5 rounded-[6px] text-[13px] font-normal transition-colors ${
+                className={`px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-none border-2 border-[#121212] transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#0f1011] text-[#ffffff] border border-[#23252a]'
-                    : 'text-[#8a8f98] hover:text-[#d0d6e0] hover:bg-[#0f1011]/50'
-                }`}
+                    ? 'bg-[#121212] text-white shadow-[3px_3px_0px_0px_#D02020] translate-x-[-1px] translate-y-[-1px]'
+                    : 'bg-white text-[#121212] shadow-[2px_2px_0px_0px_#121212] hover:bg-[#F0C020] hover:translate-x-[-1px] hover:translate-y-[-1px]'
+                } active:translate-x-[2px] active:translate-y-[2px] active:shadow-none`}
               >
                 {item.label}
               </Link>
@@ -57,17 +62,17 @@ export const Header = () => {
         </nav>
 
         {/* Right Actions & Status */}
-        <div className="flex items-center gap-2.5">
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded-[4px] bg-[#0f1011] border border-[#23252a] text-[11px] text-[#8a8f98]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#27a644]" />
-            <span className="font-mono">Client-First</span>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-[#F0C020] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] text-[11px] font-bold uppercase tracking-wider text-[#121212]">
+            <span className="w-2 h-2 rounded-full bg-[#121212]" />
+            <span>ZERO-LOGGING</span>
           </div>
 
           {hasCustomApi && (
             <Link to="/settings" title="Custom AI Key Active">
-              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-[4px] bg-[#161718] border border-[#23252a] text-[11px] text-[#02b8cc]">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-none bg-[#1040C0] text-white border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] text-[11px] font-bold uppercase tracking-wider">
                 <KeyRound className="w-3 h-3" />
-                <span className="font-mono">AI Active</span>
+                <span>AI KEY</span>
               </span>
             </Link>
           )}
@@ -75,10 +80,10 @@ export const Header = () => {
           {isInstallable && (
             <button
               onClick={installPwa}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-[#23252a] text-[12px] text-[#d0d6e0] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-[#D02020] hover:bg-[#b01818] text-white border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             >
-              <Download className="w-3 h-3" />
-              <span>Install PWA</span>
+              <Download className="w-3.5 h-3.5" />
+              <span>INSTALL APP</span>
             </button>
           )}
         </div>

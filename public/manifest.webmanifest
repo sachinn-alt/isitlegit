@@ -4,8 +4,8 @@
   "description": "Free AI-powered scam, phishing and legitimacy verification platform. Check links, emails, SMS, and QR codes.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#020617",
-  "theme_color": "#020617",
+  "background_color": "#F0F0F0",
+  "theme_color": "#F0F0F0",
   "icons": [
     {
       "src": "/icon-192.png",

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/ui/dialog';
-import { Button } from '@/ui/button';
-import { ShieldCheck, Lock, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Lock, CheckCircle2 } from 'lucide-react';
 import { useSettings } from '@/hooks/useSettings';
 
 export const SetupWizard = () => {
@@ -22,51 +21,55 @@ export const SetupWizard = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleComplete()}>
-      <DialogContent className="max-w-md bg-slate-900 border-slate-800 text-white rounded-3xl p-6 sm:p-8">
-        <DialogHeader className="text-center sm:text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 shadow-xl shadow-blue-500/25 mb-3">
-            <ShieldCheck className="h-8 w-8 text-white" />
+      <DialogContent className="max-w-md bg-white border-2 sm:border-4 border-[#121212] shadow-[8px_8px_0px_0px_#121212] text-[#121212] rounded-none p-6 sm:p-8">
+        <DialogHeader className="text-center sm:text-center border-b-2 sm:border-b-4 border-[#121212] pb-4 mb-4">
+          <div className="mx-auto flex items-center justify-center gap-1.5 mb-3">
+            <div className="w-5 h-5 rounded-full bg-[#D02020] border-2 border-[#121212]" />
+            <div className="w-5 h-5 bg-[#F0C020] border-2 border-[#121212]" />
+            <div className="w-5 h-5 bg-[#1040C0] clip-triangle border-2 border-[#121212]" />
           </div>
-          <DialogTitle className="text-2xl font-bold tracking-tight">
-            Welcome to IsItLegit
+          <DialogTitle className="text-2xl font-black uppercase tracking-tight text-[#121212]">
+            ISITLEGIT BAUHAUS
           </DialogTitle>
-          <DialogDescription className="text-xs text-slate-400 mt-1">
-            The next-generation scam detector & authenticity verification platform
+          <DialogDescription className="text-xs font-bold uppercase text-[#62666D] mt-1">
+            Constructivist threat engine & authenticity verifier
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-3 py-3 text-xs text-slate-300">
-          <div className="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-3.5">
-            <CheckCircle2 className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
+        <div className="space-y-3 py-2 text-xs text-[#121212]">
+          <div className="flex items-start gap-3 border-2 border-[#121212] bg-[#F0F0F0] p-3.5 shadow-[2px_2px_0px_0px_#121212]">
+            <CheckCircle2 className="w-4 h-4 text-[#D02020] mt-0.5 shrink-0" strokeWidth={2.5} />
             <div>
-              <strong className="text-white block mb-0.5">Scam & Phishing Detection</strong>
-              Unmasks deceptive lookalike links, homograph spoofs, fake SMS alerts, and quishing QR attacks.
+              <strong className="text-[#121212] font-black uppercase block mb-0.5">Payload Dissection</strong>
+              Unmasks lookalikes, homoglyphs, fake SMS notifications, and QR quishing.
             </div>
           </div>
 
-          <div className="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-3.5">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+          <div className="flex items-start gap-3 border-2 border-[#121212] bg-[#FFF9C4] p-3.5 shadow-[2px_2px_0px_0px_#121212]">
+            <CheckCircle2 className="w-4 h-4 text-[#1040C0] mt-0.5 shrink-0" strokeWidth={2.5} />
             <div>
-              <strong className="text-white block mb-0.5">Authenticity Verification</strong>
-              Explains why real bank fraud alerts or OTPs feel suspicious while confirming they are 100% legitimate.
+              <strong className="text-[#121212] font-black uppercase block mb-0.5">Authenticity Verification</strong>
+              Validates legitimate bank fraud alerts and OTPs against 140+ institutional roots.
             </div>
           </div>
 
-          <div className="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-3.5">
-            <Lock className="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" />
+          <div className="flex items-start gap-3 border-2 border-[#121212] bg-[#F0F0F0] p-3.5 shadow-[2px_2px_0px_0px_#121212]">
+            <Lock className="w-4 h-4 text-[#121212] mt-0.5 shrink-0" strokeWidth={2.5} />
             <div>
-              <strong className="text-white block mb-0.5">100% Client-Side Privacy</strong>
-              Zero tracking, zero analytics, and zero server logging. Your links and messages stay on your device.
+              <strong className="text-[#121212] font-black uppercase block mb-0.5">Client-Side Isolation</strong>
+              Zero server logging, zero telemetry. 100% on-device Web Crypto sandboxing.
             </div>
           </div>
         </div>
 
-        <Button
-          onClick={handleComplete}
-          className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl h-11 text-xs font-semibold cursor-pointer shadow-lg shadow-blue-500/25"
-        >
-          <span>Get Started & Run First Scan</span>
-        </Button>
+        <div className="pt-4">
+          <button
+            onClick={handleComplete}
+            className="w-full h-12 bg-[#D02020] hover:bg-[#b01818] text-white border-2 border-[#121212] shadow-[4px_4px_0px_0px_#121212] text-xs font-black uppercase tracking-wider transition-all cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          >
+            ENTER CONSOLE →
+          </button>
+        </div>
       </DialogContent>
     </Dialog>
   );

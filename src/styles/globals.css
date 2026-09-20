@@ -1,203 +1,169 @@
 @import "tailwindcss";
 
 @theme {
-  /* Linear Midnight Precision Palette */
-  --color-void: #08090a;
-  --color-carbon: #0f1011;
-  --color-obsidian: #161718;
-  --color-graphite: #23252a;
-  --color-smoke: #383b3f;
-  --color-ash: #62666d;
-  --color-fog: #8a8f98;
-  --color-mist: #d0d6e0;
-  --color-bone: #e5e5e6;
-  --color-paper: #ffffff;
-  --color-acid-lime: #e4f222;
-  --color-pulse-green: #27a644;
-  --color-coral-red: #eb5757;
-  --color-signal-teal: #02b8cc;
-  --color-iris-violet: #6366f1;
-  --color-lavender: #8b5cf6;
+  /* Bauhaus Constructivist Palette */
+  --color-canvas: #F0F0F0;
+  --color-ink: #121212;
+  --color-bauhaus-red: #D02020;
+  --color-bauhaus-blue: #1040C0;
+  --color-bauhaus-yellow: #F0C020;
+  --color-bauhaus-yellow-light: #FFF9C4;
+  --color-bauhaus-border: #121212;
+  --color-bauhaus-muted: #E0E0E0;
+  --color-paper: #FFFFFF;
 
-  /* Typography */
-  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Typography: Outfit is the geometric soul of Bauhaus */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Spacing */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-48: 48px;
-  --spacing-64: 64px;
-  --spacing-96: 96px;
-
-  /* Linear Radii Vocabulary */
-  --radius-sm: 2px;
-  --radius-md: 6px;
-  --radius-xl: 12px;
+  /* Binary Radii: Strict Bauhaus rule — only 0px or full circle/pill */
+  --radius-none: 0px;
   --radius-full: 9999px;
 }
 
 :root {
-  --background: 220 11% 4%; /* #08090a */
-  --foreground: 218 27% 85%; /* #d0d6e0 */
-  --card: 220 6% 6%; /* #0f1011 */
-  --card-foreground: 0 0% 100%; /* #ffffff */
-  --popover: 220 6% 6%;
-  --popover-foreground: 0 0% 100%;
-  --primary: 65 91% 54%; /* #e4f222 Acid Lime */
-  --primary-foreground: 220 11% 4%; /* #08090a */
-  --secondary: 220 4% 9%; /* #161718 Obsidian */
-  --secondary-foreground: 218 27% 85%; /* #d0d6e0 */
-  --muted: 220 5% 15%; /* #23252a Graphite */
-  --muted-foreground: 220 7% 57%; /* #8a8f98 Fog */
-  --border: 220 9% 15%; /* #23252a Graphite */
-  --input: 220 9% 15%;
-  --ring: 218 27% 85%; /* #d0d6e0 */
+  --background: 0 0% 94%; /* #F0F0F0 */
+  --foreground: 0 0% 7%; /* #121212 */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 0 0% 7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 7%;
+  --primary: 0 74% 47%; /* #D02020 Bauhaus Red */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 224 85% 41%; /* #1040C0 Bauhaus Blue */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 88%; /* #E0E0E0 */
+  --muted-foreground: 0 0% 40%;
+  --accent: 46 88% 53%; /* #F0C020 Bauhaus Yellow */
+  --accent-foreground: 0 0% 7%;
+  --border: 0 0% 7%; /* #121212 Stark Black */
+  --input: 0 0% 7%;
+  --ring: 0 74% 47%;
 }
 
 * {
-  border-color: #23252a;
+  border-color: #121212;
 }
 
 body {
-  background-color: #08090a;
-  color: #d0d6e0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-feature-settings: "cv01" on, "ss03" on, "zero" on, "cv02" on;
+  background-color: #F0F0F0;
+  color: #121212;
+  font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   min-height: 100vh;
 }
 
+/* Constructivist Typography helpers */
+.font-headline {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.font-subhead {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.font-label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
 code, kbd, samp, pre {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-feature-settings: "cv01" on, "ss03" on;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-/* Linear Hairline Card */
-.linear-card {
-  background-color: #0f1011;
-  border: 1px solid #23252a;
-  border-radius: 12px;
+/* Hard Offset Shadows - Core Bauhaus Layering (No blur!) */
+.shadow-bauhaus-sm {
+  box-shadow: 3px 3px 0px 0px #121212;
 }
 
-.linear-panel {
-  background-color: #161718;
-  border: 1px solid #23252a;
-  border-radius: 6px;
+.shadow-bauhaus {
+  box-shadow: 4px 4px 0px 0px #121212;
 }
 
-/* Precision Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #23252a;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #383b3f;
+.shadow-bauhaus-md {
+  box-shadow: 6px 6px 0px 0px #121212;
 }
 
-/* Cybernetic Grid & Glow Backgrounds */
-.cyber-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+.shadow-bauhaus-lg {
+  box-shadow: 8px 8px 0px 0px #121212;
 }
 
-.radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 70%);
+.shadow-bauhaus-yellow {
+  box-shadow: 4px 4px 0px 0px #F0C020;
 }
 
-.radial-emerald {
-  background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.18), transparent 60%);
+.shadow-bauhaus-red {
+  box-shadow: 4px 4px 0px 0px #D02020;
 }
 
-.radial-rose {
-  background: radial-gradient(circle at 50% 20%, rgba(244, 63, 94, 0.18), transparent 60%);
+.shadow-bauhaus-blue {
+  box-shadow: 4px 4px 0px 0px #1040C0;
 }
 
-.radial-amber {
-  background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.18), transparent 60%);
+/* Tactile Physical Press Animation */
+.btn-bauhaus-press {
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+.btn-bauhaus-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px transparent !important;
 }
 
-/* Glassmorphism Classes */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Subtle Geometric Lift on Hover */
+.hover-bauhaus-lift {
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+.hover-bauhaus-lift:hover {
+  transform: translateY(-2px);
 }
 
-.glass-card {
-  background: rgba(17, 24, 39, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+/* Geometric Triangle via CSS clip-path */
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
-.glass-input {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
-/* Custom Sleek Scrollbar */
+/* Dot Grid Pattern (Subtle Constructivist Grid) */
+.bauhaus-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(#121212 1px, transparent 1px);
+}
+
+/* Safe Area Inset Support for PWA */
+.pb-safe {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Scrollbar in Bauhaus High-Contrast */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.5);
+  background: #E0E0E0;
+  border-left: 2px solid #121212;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.35);
-  border-radius: 4px;
+  background: #121212;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.55);
-}
-
-/* Keyframes */
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.02);
-  }
-}
-
-@keyframes radar-sweep {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s infinite ease-in-out;
-}
-
-.animate-radar {
-  animation: radar-sweep 4s linear infinite;
+  background: #D02020;
 }

@@ -1,6 +1,4 @@
 import { Source } from '@/types';
-import { GlareCard } from '@/components/aceternity/glare-card';
-import { Badge } from '@/ui/badge';
 import { ExternalLink, CheckCircle2, AlertTriangle, XCircle, Clock } from 'lucide-react';
 
 interface SourceListProps {
@@ -15,31 +13,31 @@ export const SourceList = ({ sources }: SourceListProps) => {
       case 'verified_legit':
       case 'clean':
         return (
-          <Badge variant="safe" className="gap-1 text-[11px]">
-            <CheckCircle2 className="w-3 h-3" />
-            <span>Passed Clean</span>
-          </Badge>
+          <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-2 py-0.5 bg-[#FFF9C4] text-[#121212] border border-[#121212]">
+            <CheckCircle2 className="w-3 h-3" strokeWidth={2.5} />
+            <span>PASSED CLEAN</span>
+          </span>
         );
       case 'suspicious':
         return (
-          <Badge variant="suspicious" className="gap-1 text-[11px]">
-            <AlertTriangle className="w-3 h-3" />
-            <span>Flagged Suspicious</span>
-          </Badge>
+          <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-2 py-0.5 bg-[#F0C020] text-[#121212] border border-[#121212]">
+            <AlertTriangle className="w-3 h-3" strokeWidth={2.5} />
+            <span>SUSPICIOUS</span>
+          </span>
         );
       case 'malicious':
         return (
-          <Badge variant="destructive" className="gap-1 text-[11px]">
-            <XCircle className="w-3 h-3" />
-            <span>Threat Confirmed</span>
-          </Badge>
+          <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-2 py-0.5 bg-[#D02020] text-white border border-[#121212]">
+            <XCircle className="w-3 h-3" strokeWidth={2.5} />
+            <span>MALICIOUS</span>
+          </span>
         );
       default:
         return (
-          <Badge variant="outline" className="gap-1 text-[11px] text-slate-400">
-            <Clock className="w-3 h-3" />
-            <span>Checked</span>
-          </Badge>
+          <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-2 py-0.5 bg-[#F0F0F0] text-[#121212] border border-[#121212]">
+            <Clock className="w-3 h-3" strokeWidth={2.5} />
+            <span>CHECKED</span>
+          </span>
         );
     }
   };
@@ -47,19 +45,28 @@ export const SourceList = ({ sources }: SourceListProps) => {
   return (
     <div className="space-y-4">
       <div>
-        <h4 className="text-lg font-bold text-white">Verified Intelligence Sources</h4>
-        <p className="text-xs text-slate-400">Data repositories and reputation feeds queried during this scan</p>
+        <h4 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-[#121212]">
+          VERIFIED INTELLIGENCE REPOSITORIES
+        </h4>
+        <p className="text-xs font-bold uppercase text-[#62666D]">
+          Data sources and security feeds interrogated during this diagnostic cycle
+        </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {sources.map((source, index) => (
-          <GlareCard key={index} className="flex flex-col justify-between h-40">
+          <div 
+            key={index} 
+            className="flex flex-col justify-between h-44 bg-white border-2 sm:border-4 border-[#121212] p-5 shadow-[4px_4px_0px_0px_#121212] hover:-translate-y-1 transition-transform"
+          >
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="font-semibold text-slate-200 text-sm">{source.name}</span>
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-black text-sm uppercase text-[#121212] truncate">
+                  {source.name}
+                </span>
                 {getStatusBadge(source.status)}
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
+              <p className="text-xs font-medium text-[#62666D] leading-relaxed line-clamp-3">
                 {source.details}
               </p>
             </div>
@@ -69,13 +76,13 @@ export const SourceList = ({ sources }: SourceListProps) => {
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] text-blue-400 hover:text-blue-300 font-medium transition-colors pt-2 border-t border-slate-800"
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1040C0] hover:text-[#D02020] pt-2 border-t-2 border-[#121212] transition-colors"
               >
-                <span>View Full Telemetry</span>
-                <ExternalLink className="w-3 h-3" />
+                <span>VIEW TELEMETRY</span>
+                <ExternalLink className="w-3.5 h-3.5" strokeWidth={2.5} />
               </a>
             )}
-          </GlareCard>
+          </div>
         ))}
       </div>
     </div>

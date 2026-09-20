@@ -1,10 +1,6 @@
 import { motion } from 'motion/react';
 import { ScanResult } from '@/types';
-import { Badge } from '@/ui/badge';
-import { ShieldAlert, ShieldCheck, AlertTriangle, CheckCircle, ExternalLink, Bookmark, Share2 } from 'lucide-react';
-import { Button } from '@/ui/button';
-import { ShinyText } from '@/components/reactbits/shiny-text';
-import { getThreatColor } from '@/lib/utils';
+import { ShieldAlert, ShieldCheck, AlertTriangle, CheckCircle, Bookmark, Share2 } from 'lucide-react';
 
 interface VerdictCardProps {
   result: ScanResult;
@@ -21,101 +17,115 @@ export const VerdictCard = ({
 }: VerdictCardProps) => {
   const isLegit = result.verdictCategory === 'LEGITIMATE';
   const isMalicious = result.verdictCategory === 'MALICIOUS';
-  const colors = getThreatColor(result.verdict);
 
   // SVG Gauge calculations
-  const radius = 64;
+  const radius = 56;
   const circumference = 2 * Math.PI * radius;
-  // Threat score gauge: score 0 is full safe circle (green), score 100 is full danger circle (red)
   const displayScore = isLegit ? result.legitimacyScore : result.threatScore;
   const strokeDashoffset = circumference - (displayScore / 100) * circumference;
 
+  const getVerdictBg = () => {
+    if (isLegit) return 'bg-[#FFF9C4] text-[#121212]';
+    if (isMalicious) return 'bg-[#D02020] text-white';
+    return 'bg-[#F0C020] text-[#121212]';
+  };
+
+  const getStrokeColor = () => {
+    if (isLegit) return '#1040C0';
+    if (isMalicious) return '#D02020';
+    return '#F0C020';
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      className="relative overflow-hidden rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 sm:p-7 shadow-[rgba(0,0,0,0.4)_0px_2px_4px_0px]"
+      className="relative bg-white border-2 sm:border-4 border-[#121212] p-6 sm:p-8 shadow-[6px_6px_0px_0px_#121212] sm:shadow-[8px_8px_0px_0px_#121212] space-y-6"
     >
+      {/* Top right geometric shape */}
+      <div className="absolute top-4 right-4 flex items-center gap-1">
+        <div className={`w-3 h-3 ${isMalicious ? 'bg-[#D02020]' : isLegit ? 'bg-[#1040C0]' : 'bg-[#F0C020]'} border border-[#121212]`} />
+      </div>
 
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-        {/* Left: Score Gauge & Icon */}
+        {/* Left: Score Gauge & Description */}
         <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-          <div className="relative w-36 h-36 flex items-center justify-center shrink-0">
-            <svg className="w-full h-full -rotate-90 transform" viewBox="0 0 160 160">
+          
+          {/* Bauhaus Circular Meter */}
+          <div className="relative w-32 h-32 flex items-center justify-center shrink-0 border-4 border-[#121212] bg-[#F0F0F0] shadow-[3px_3px_0px_0px_#121212]">
+            <svg className="w-full h-full -rotate-90 transform p-1" viewBox="0 0 140 140">
               <circle
-                cx="80"
-                cy="80"
+                cx="70"
+                cy="70"
                 r={radius}
-                className="text-slate-800"
-                strokeWidth="12"
+                className="text-[#E0E0E0]"
+                strokeWidth="10"
                 stroke="currentColor"
                 fill="transparent"
               />
               <motion.circle
-                cx="80"
-                cy="80"
+                cx="70"
+                cy="70"
                 r={radius}
-                className={isLegit ? 'text-emerald-500' : isMalicious ? 'text-rose-500' : 'text-amber-500'}
+                stroke={getStrokeColor()}
                 strokeWidth="12"
                 strokeDasharray={circumference}
                 initial={{ strokeDashoffset: circumference }}
                 animate={{ strokeDashoffset }}
-                transition={{ duration: 1.2, ease: 'easeOut' }}
-                strokeLinecap="round"
-                stroke="currentColor"
+                transition={{ duration: 0.8, ease: 'easeOut' }}
                 fill="transparent"
               />
             </svg>
 
             <div className="absolute flex flex-col items-center justify-center">
-              <span className="text-3xl font-extrabold font-mono text-white">
+              <span className="text-3xl font-black font-mono text-[#121212]">
                 {displayScore}
               </span>
-              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-                {isLegit ? 'Authenticity' : 'Threat Level'}
+              <span className="text-[9px] uppercase font-black tracking-widest text-[#62666D]">
+                {isLegit ? 'GENUINE' : 'THREAT'}
               </span>
             </div>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-              <Badge
-                className={`text-sm px-3 py-1 font-bold uppercase tracking-wider ${colors.badge}`}
+              <div
+                className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-black uppercase tracking-wider border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] ${getVerdictBg()}`}
               >
                 {isLegit ? (
-                  <CheckCircle className="w-4 h-4 mr-1.5" />
+                  <CheckCircle className="w-4 h-4" strokeWidth={3} />
                 ) : isMalicious ? (
-                  <ShieldAlert className="w-4 h-4 mr-1.5" />
+                  <ShieldAlert className="w-4 h-4" strokeWidth={3} />
                 ) : (
-                  <AlertTriangle className="w-4 h-4 mr-1.5" />
+                  <AlertTriangle className="w-4 h-4" strokeWidth={3} />
                 )}
                 <span>
                   {result.isLegitimateConfirmed
-                    ? 'Verified Authentic'
+                    ? 'VERIFIED AUTHENTIC'
                     : result.verdict.replace('_', ' ')}
                 </span>
-              </Badge>
+              </div>
 
               {result.scamType && (
-                <Badge variant="outline" className="text-xs text-rose-400 border-rose-500/30">
+                <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-white border-2 border-[#121212] text-[#D02020] shadow-[2px_2px_0px_0px_#121212]">
                   {result.scamType}
-                </Badge>
+                </span>
               )}
             </div>
 
-            <h3 className="text-2xl font-bold text-white tracking-tight">
-              <ShinyText text={result.summary} />
+            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#121212] leading-tight">
+              {result.summary}
             </h3>
 
-            <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
+            <p className="text-sm font-medium text-[#121212] leading-relaxed max-w-xl">
               {result.explanation}
             </p>
 
             {result.officialEntity && (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-700/60 text-xs text-emerald-300 mt-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Matches official records for: <strong>{result.officialEntity.name}</strong></span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#FFF9C4] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212] text-xs font-bold uppercase tracking-wider text-[#121212] mt-1">
+                <ShieldCheck className="w-4 h-4 text-[#1040C0]" strokeWidth={2.5} />
+                <span>Matches official registry: <strong>{result.officialEntity.name}</strong></span>
               </div>
             )}
           </div>
@@ -124,29 +134,27 @@ export const VerdictCard = ({
         {/* Right: Quick actions */}
         <div className="flex sm:flex-col items-center gap-3 w-full sm:w-auto shrink-0 justify-end">
           {onShare && (
-            <Button
-              variant="outline"
-              size="sm"
+            <button
               onClick={onShare}
-              className="gap-2 w-full sm:w-36 text-xs border-slate-700 hover:bg-slate-800"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-36 h-10 px-3 bg-white hover:bg-[#F0C020] text-[#121212] border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             >
-              <Share2 className="w-3.5 h-3.5" />
-              <span>Share Verdict</span>
-            </Button>
+              <Share2 className="w-4 h-4" strokeWidth={2.5} />
+              <span>SHARE DOSSIER</span>
+            </button>
           )}
 
           {onBookmark && (
-            <Button
-              variant="outline"
-              size="sm"
+            <button
               onClick={onBookmark}
-              className={`gap-2 w-full sm:w-36 text-xs ${
-                isBookmarked ? 'text-amber-400 border-amber-500/40 bg-amber-500/10' : 'border-slate-700'
+              className={`inline-flex items-center justify-center gap-2 w-full sm:w-36 h-10 px-3 border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-bold uppercase tracking-wider transition-all cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none ${
+                isBookmarked 
+                  ? 'bg-[#F0C020] text-[#121212]' 
+                  : 'bg-white text-[#121212] hover:bg-[#E0E0E0]'
               }`}
             >
-              <Bookmark className="w-3.5 h-3.5" />
-              <span>{isBookmarked ? 'Saved' : 'Save to Archive'}</span>
-            </Button>
+              <Bookmark className="w-4 h-4" strokeWidth={2.5} />
+              <span>{isBookmarked ? 'SAVED' : 'ARCHIVE'}</span>
+            </button>
           )}
         </div>
       </div>

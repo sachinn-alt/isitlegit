@@ -13,7 +13,7 @@ export const SettingsPage = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-4xl px-4 sm:px-6 py-6 space-y-8">
+    <div className="container mx-auto max-w-5xl px-4 sm:px-8 py-8 space-y-10">
       <SEOHead
         title="Settings & Security Credentials"
         description="Configure client-side AES-GCM encrypted API keys for Gemini and VirusTotal, manage scan notifications, and control device storage settings."
@@ -23,18 +23,18 @@ export const SettingsPage = () => {
 
       <Breadcrumbs items={[{ label: 'Settings', path: '/settings' }]} />
 
-      <div className="space-y-2 text-center sm:text-left">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs text-blue-300 font-medium">
-          <SettingsIcon className="w-3.5 h-3.5" />
-          <span>Configuration & Cryptography</span>
+      <div className="space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1040C0] text-white border-2 border-[#121212] shadow-[3px_3px_0px_0px_#121212] text-xs font-black uppercase tracking-widest">
+          <SettingsIcon className="w-3.5 h-3.5" strokeWidth={2.5} />
+          <span>CONFIGURATION & HARDWARE CRYPTOGRAPHY</span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Settings & Security Credentials
+        <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-[#121212] leading-[0.95]">
+          ENGINE KEYS & PREFERENCES
         </h1>
 
-        <p className="text-xs sm:text-sm text-slate-400 max-w-xl leading-relaxed">
-          Manage your personal AI keys, configure browser notification preferences, and inspect encryption protocols.
+        <p className="text-sm sm:text-base font-medium text-[#121212] max-w-xl leading-relaxed">
+          Configure optional vision and threat intelligence keys, manage browser notifications, and inspect AES-GCM 256 storage locks.
         </p>
       </div>
 

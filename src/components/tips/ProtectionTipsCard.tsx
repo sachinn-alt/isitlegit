@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { ShieldCheck, AlertTriangle, CheckSquare, Square, LifeBuoy, Zap, Lock, PhoneCall } from 'lucide-react';
-import { Badge } from '@/ui/badge';
-import { CardSpotlight } from '@/components/aceternity/card-spotlight';
+import { ShieldCheck, CheckSquare, Square, LifeBuoy, Zap, Lock } from 'lucide-react';
 
 export const ProtectionTipsCard = () => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
@@ -9,28 +7,28 @@ export const ProtectionTipsCard = () => {
   const checklist = [
     {
       id: 1,
-      title: 'Inspect the Root Domain Carefully',
+      title: 'Inspect the Root Domain Segment',
       desc: 'Look at the last two segments of the address before the first slash. For example, "chase.com.security-login.xyz" is security-login.xyz, NOT Chase.',
     },
     {
       id: 2,
       title: 'Beware of Artificial Panic & Timers',
-      desc: 'Scams rely on creating panic ("Account closing in 2 hours", "Warrant for arrest"). Legitimate banks and government agencies never demand instant gift card or crypto payments.',
+      desc: 'Scams rely on creating panic ("Account closing in 2 hours", "Arrest notice"). Legitimate financial institutions never demand gift card or crypto payments.',
     },
     {
       id: 3,
-      title: 'Never Read Back an SMS OTP to Any Caller',
-      desc: 'Real customer service reps will never call you asking you to read a 6-digit code sent to your phone. Those codes are strictly for YOUR eyes only.',
+      title: 'Never Disclose SMS OTP Codes Over Phone',
+      desc: 'Bank customer service agents will NEVER call you requesting a 6-digit one-time code sent to your phone. Those codes are strictly for your eyes.',
     },
     {
       id: 4,
-      title: 'Go Directly to the Source (Out-of-Band)',
-      desc: 'If an email claims your package is held, close the email, open your browser, and type the courier website manually or check their official mobile app.',
+      title: 'Navigate Directly to the Source (Out-of-Band)',
+      desc: 'If a notification claims your delivery is stuck, close the message, open your browser, and type the carrier website manually or open their mobile app.',
     },
     {
       id: 5,
-      title: 'Check the Reply-To Address on Emails',
-      desc: 'Click on the sender profile to see the actual underlying email address. If the display name says "Netflix Support" but the address is @yahoo.com or @outlook.com, it is 100% fake.',
+      title: 'Examine Sender Reply-To Email Headers',
+      desc: 'Click on the sender profile to inspect the underlying email address. If the display name says "Netflix Support" but the address is @yahoo.com, it is 100% fake.',
     },
   ];
 
@@ -42,22 +40,26 @@ export const ProtectionTipsCard = () => {
 
   return (
     <div className="space-y-8">
-      {/* Interactive 5-Second Scam Checklist */}
-      <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-6">
+      {/* Interactive Scam Checklist in Bauhaus */}
+      <div className="bg-white border-2 sm:border-4 border-[#121212] p-6 sm:p-8 shadow-[6px_6px_0px_0px_#121212]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 sm:border-b-4 border-[#121212] pb-5 mb-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-500/20 text-blue-400">
-              <Zap className="w-5 h-5" />
+            <div className="flex h-10 w-10 items-center justify-center bg-[#F0C020] text-[#121212] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212]">
+              <Zap className="w-5 h-5" strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">5-Second Scam Checklist</h3>
-              <p className="text-xs text-slate-400">Run this quick mental inspection before clicking any link or sharing information</p>
+              <h3 className="text-xl font-black uppercase tracking-tight text-[#121212]">
+                5-SECOND HEURISTIC CHECKLIST
+              </h3>
+              <p className="text-xs font-bold uppercase text-[#62666D]">
+                Pre-flight sanity check before clicking links or granting permissions
+              </p>
             </div>
           </div>
 
-          <Badge variant="outline" className="text-xs border-blue-500/40 text-blue-300 font-mono py-1 px-3 self-start sm:self-auto">
-            {completedCount}/{checklist.length} Verified Safe
-          </Badge>
+          <span className="text-xs font-black uppercase px-3 py-1 bg-[#121212] text-white border-2 border-[#121212] shadow-[2px_2px_0px_0px_#D02020] self-start sm:self-auto">
+            {completedCount}/{checklist.length} VERIFIED
+          </span>
         </div>
 
         <div className="space-y-3">
@@ -67,24 +69,26 @@ export const ProtectionTipsCard = () => {
               <div
                 key={item.id}
                 onClick={() => toggleItem(item.id)}
-                className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer select-none ${
+                className={`flex items-start gap-3.5 p-4 border-2 border-[#121212] transition-all cursor-pointer select-none shadow-[2px_2px_0px_0px_#121212] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none ${
                   isChecked
-                    ? 'border-emerald-500/30 bg-emerald-500/10'
-                    : 'border-slate-800/80 bg-slate-950/40 hover:border-slate-700 hover:bg-slate-900/50'
+                    ? 'bg-[#FFF9C4]'
+                    : 'bg-[#F0F0F0] hover:bg-white'
                 }`}
               >
-                <div className="mt-0.5 shrink-0 text-slate-400">
+                <div className="mt-0.5 shrink-0">
                   {isChecked ? (
-                    <CheckSquare className="w-5 h-5 text-emerald-400" />
+                    <CheckSquare className="w-5 h-5 text-[#1040C0]" strokeWidth={2.5} />
                   ) : (
-                    <Square className="w-5 h-5 text-slate-500" />
+                    <Square className="w-5 h-5 text-[#121212]" strokeWidth={2.5} />
                   )}
                 </div>
                 <div>
-                  <h4 className={`text-sm font-semibold transition-colors ${isChecked ? 'text-emerald-300' : 'text-slate-200'}`}>
+                  <h4 className="text-sm font-black uppercase text-[#121212]">
                     {item.title}
                   </h4>
-                  <p className="text-xs text-slate-400 mt-1 leading-relaxed">{item.desc}</p>
+                  <p className="text-xs font-medium text-[#121212] mt-1 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             );
@@ -92,46 +96,50 @@ export const ProtectionTipsCard = () => {
         </div>
       </div>
 
-      {/* Emergency Damage Control */}
-      <div className="rounded-3xl border border-rose-500/30 bg-rose-500/10 p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-rose-500/20 text-rose-400">
-            <LifeBuoy className="w-5 h-5" />
+      {/* Emergency Damage Control - Bauhaus Red Block */}
+      <div className="bg-[#D02020] text-white border-2 sm:border-4 border-[#121212] p-6 sm:p-8 shadow-[6px_6px_0px_0px_#121212] space-y-6">
+        <div className="flex items-center gap-3 border-b-2 border-white pb-4">
+          <div className="flex h-10 w-10 items-center justify-center bg-white text-[#D02020] border-2 border-[#121212] shadow-[2px_2px_0px_0px_#121212]">
+            <LifeBuoy className="w-6 h-6" strokeWidth={2.5} />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-white">Emergency Damage Control: "I Clicked or Entered My Info"</h3>
-            <p className="text-xs text-slate-300 mt-0.5">Immediate steps to minimize financial and identity exposure</p>
+            <h3 className="text-xl font-black uppercase tracking-tight text-white">
+              EMERGENCY DAMAGE CONTROL: "I ENTERED CREDENTIALS"
+            </h3>
+            <p className="text-xs font-bold uppercase text-[#FFF9C4]">
+              Immediate containment steps to arrest financial and account loss
+            </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div className="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-5 space-y-2">
-            <div className="flex items-center gap-2 font-bold text-white text-sm">
-              <Lock className="w-4 h-4 text-rose-400" />
-              <span>1. Freeze or Lock Cards</span>
+          <div className="bg-white text-[#121212] border-2 border-[#121212] p-5 space-y-2 shadow-[3px_3px_0px_0px_#121212]">
+            <div className="flex items-center gap-2 font-black uppercase text-sm text-[#D02020]">
+              <Lock className="w-4 h-4" strokeWidth={2.5} />
+              <span>1. Freeze Payment Cards</span>
             </div>
-            <p className="text-slate-300 leading-relaxed">
-              If you provided credit or debit card numbers, open your banking app right now and toggle <strong>Freeze Card</strong> or call the 24/7 hotline on your card.
+            <p className="font-medium leading-relaxed">
+              If card details were submitted, open your banking app immediately and activate <strong>Freeze Card</strong> or contact the emergency card number.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-5 space-y-2">
-            <div className="flex items-center gap-2 font-bold text-white text-sm">
-              <Zap className="w-4 h-4 text-amber-400" />
-              <span>2. Reset Account Passwords</span>
+          <div className="bg-white text-[#121212] border-2 border-[#121212] p-5 space-y-2 shadow-[3px_3px_0px_0px_#121212]">
+            <div className="flex items-center gap-2 font-black uppercase text-sm text-[#1040C0]">
+              <Zap className="w-4 h-4" strokeWidth={2.5} />
+              <span>2. Change Master Password</span>
             </div>
-            <p className="text-slate-300 leading-relaxed">
-              Go to the official website from a separate, clean browser or mobile app and immediately reset the password for any compromised account.
+            <p className="font-medium leading-relaxed">
+              Open the genuine official website from a clean browser or mobile app and immediately reset login passwords.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-5 space-y-2">
-            <div className="flex items-center gap-2 font-bold text-white text-sm">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>3. Revoke Session Logins</span>
+          <div className="bg-white text-[#121212] border-2 border-[#121212] p-5 space-y-2 shadow-[3px_3px_0px_0px_#121212]">
+            <div className="flex items-center gap-2 font-black uppercase text-sm text-[#121212]">
+              <ShieldCheck className="w-4 h-4" strokeWidth={2.5} />
+              <span>3. Terminate All Sessions</span>
             </div>
-            <p className="text-slate-300 leading-relaxed">
-              In your security settings (Google, Apple, Microsoft, Bank), choose <strong>"Sign out of all other devices"</strong> to terminate any session stolen by session-hijackers.
+            <p className="font-medium leading-relaxed">
+              In your security settings (Google, Apple, Microsoft, Bank), trigger <strong>"Sign out of all other devices"</strong> to invalidate stolen session cookies.
             </p>
           </div>
         </div>

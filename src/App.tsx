@@ -13,10 +13,10 @@ import { Toaster } from 'sonner';
 export function App() {
   return (
     <Router>
-      <div className="relative min-h-screen bg-[#08090a] text-[#d0d6e0] flex flex-col justify-between selection:bg-[#e4f222]/20 selection:text-white">
+      <div className="relative min-h-screen bg-[#F0F0F0] text-[#121212] font-sans flex flex-col justify-between selection:bg-[#F0C020] selection:text-[#121212]">
         <div>
           <Header />
-          <main className="pb-20 md:pb-8">
+          <main className="pb-24 md:pb-12">
             <Routes>
               <Route path="/" element={<ScanPage />} />
               <Route path="/tips" element={<TipsPage />} />
@@ -30,7 +30,7 @@ export function App() {
         <Footer />
         <MobileNav />
         <SetupWizard />
-        <Toaster position="top-right" theme="dark" richColors />
+        <Toaster position="top-right" theme="light" richColors />
       </div>
     </Router>
   );
