@@ -10,6 +10,8 @@ export const Header = () => {
 
   const navItems = [
     { label: 'SCANNER', path: '/', icon: Shield },
+    { label: 'SCAM GYM', path: '/gym', icon: Shield },
+    { label: 'EMERGENCY', path: '/emergency', icon: Shield },
     { label: 'GUIDE', path: '/tips', icon: BookOpen },
     { label: 'HISTORY', path: '/history', icon: History },
     { label: 'SETTINGS', path: '/settings', icon: SettingsIcon },

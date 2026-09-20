@@ -7,6 +7,8 @@ import { ScanPage } from '@/pages/ScanPage';
 import { TipsPage } from '@/pages/TipsPage';
 import { HistoryPage } from '@/pages/HistoryPage';
 import { SettingsPage } from '@/pages/SettingsPage';
+import { QuizPage } from '@/pages/QuizPage';
+import { EmergencyPage } from '@/pages/EmergencyPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { Toaster } from 'sonner';
 
@@ -19,6 +21,8 @@ export function App() {
           <main className="pb-24 md:pb-12">
             <Routes>
               <Route path="/" element={<ScanPage />} />
+              <Route path="/gym" element={<QuizPage />} />
+              <Route path="/emergency" element={<EmergencyPage />} />
               <Route path="/tips" element={<TipsPage />} />
               <Route path="/history" element={<HistoryPage />} />
               <Route path="/settings" element={<SettingsPage />} />

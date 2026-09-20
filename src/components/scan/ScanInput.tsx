@@ -6,6 +6,7 @@ import { Input } from '@/ui/input';
 import { Textarea } from '@/ui/textarea';
 import { ImageDropzone } from './ImageDropzone';
 import { CameraScannerModal } from './CameraScannerModal';
+import { BreachChecker } from '@/components/breach/BreachChecker';
 import {
   Link2,
   Mail,
@@ -14,7 +15,7 @@ import {
   ClipboardPaste,
   ArrowRight,
   X,
-  Sparkles
+  KeyRound,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -26,7 +27,7 @@ interface ScanInputProps {
 
 export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) => {
   const [searchParams] = useSearchParams();
-  const [activeTab, setActiveTab] = useState<ScanType>('url');
+  const [activeTab, setActiveTab] = useState<ScanType | 'breach'>('url');
   const [urlInput, setUrlInput] = useState('');
   const [textInput, setTextInput] = useState('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -146,23 +147,23 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
 
         <Tabs
           value={activeTab}
-          onValueChange={(val) => setActiveTab(val as ScanType)}
+          onValueChange={(val) => setActiveTab(val as any)}
           className="w-full"
         >
           {/* Bauhaus Mode Switcher & Tools */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-            <TabsList className="grid grid-cols-3 w-full sm:w-auto p-1 bg-[#F0F0F0] border-2 border-[#121212] rounded-none h-11">
+            <TabsList className="grid grid-cols-4 w-full sm:w-auto p-1 bg-[#F0F0F0] border-2 border-[#121212] rounded-none h-11">
               <TabsTrigger 
                 value="url" 
-                className="gap-2 text-xs font-bold uppercase tracking-wider rounded-none data-[state=active]:bg-[#D02020] data-[state=active]:text-white data-[state=active]:border-2 data-[state=active]:border-[#121212] data-[state=active]:shadow-[2px_2px_0px_0px_#121212] transition-all h-8 px-4"
+                className="gap-1.5 text-xs font-bold uppercase tracking-wider rounded-none data-[state=active]:bg-[#D02020] data-[state=active]:text-white data-[state=active]:border-2 data-[state=active]:border-[#121212] data-[state=active]:shadow-[2px_2px_0px_0px_#121212] transition-all h-8 px-3"
               >
                 <Link2 className="w-3.5 h-3.5" strokeWidth={2.5} />
-                <span>Link URL</span>
+                <span>Link</span>
               </TabsTrigger>
 
               <TabsTrigger 
                 value="email" 
-                className="gap-2 text-xs font-bold uppercase tracking-wider rounded-none data-[state=active]:bg-[#1040C0] data-[state=active]:text-white data-[state=active]:border-2 data-[state=active]:border-[#121212] data-[state=active]:shadow-[2px_2px_0px_0px_#121212] transition-all h-8 px-4"
+                className="gap-1.5 text-xs font-bold uppercase tracking-wider rounded-none data-[state=active]:bg-[#1040C0] data-[state=active]:text-white data-[state=active]:border-2 data-[state=active]:border-[#121212] data-[state=active]:shadow-[2px_2px_0px_0px_#121212] transition-all h-8 px-3"
               >
                 <Mail className="w-3.5 h-3.5" strokeWidth={2.5} />
                 <span>Message</span>
@@ -170,10 +171,18 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
 
               <TabsTrigger 
                 value="image" 
-                className="gap-2 text-xs font-bold uppercase tracking-wider rounded-none data-[state=active]:bg-[#F0C020] data-[state=active]:text-[#121212] data-[state=active]:border-2 data-[state=active]:border-[#121212] data-[state=active]:shadow-[2px_2px_0px_0px_#121212] transition-all h-8 px-4"
+                className="gap-1.5 text-xs font-bold uppercase tracking-wider rounded-none data-[state=active]:bg-[#F0C020] data-[state=active]:text-[#121212] data-[state=active]:border-2 data-[state=active]:border-[#121212] data-[state=active]:shadow-[2px_2px_0px_0px_#121212] transition-all h-8 px-3"
               >
                 <QrCode className="w-3.5 h-3.5" strokeWidth={2.5} />
                 <span>Image/QR</span>
+              </TabsTrigger>
+
+              <TabsTrigger 
+                value="breach" 
+                className="gap-1.5 text-xs font-bold uppercase tracking-wider rounded-none data-[state=active]:bg-[#121212] data-[state=active]:text-white data-[state=active]:border-2 data-[state=active]:border-[#121212] data-[state=active]:shadow-[2px_2px_0px_0px_#D02020] transition-all h-8 px-3"
+              >
+                <KeyRound className="w-3.5 h-3.5" strokeWidth={2.5} />
+                <span>Breach Audit</span>
               </TabsTrigger>
             </TabsList>
 
@@ -258,8 +267,14 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
               />
             </TabsContent>
 
-            {/* Bottom Actions & Bauhaus Sample Triggers */}
-            <div className="pt-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 border-t-2 sm:border-t-4 border-[#121212]">
+            {/* Password Exposure / Breach Checker */}
+            <TabsContent value="breach" className="mt-0">
+              <BreachChecker />
+            </TabsContent>
+
+            {/* Bottom Actions & Bauhaus Sample Triggers (Hidden for breach audit since it has its own audit button) */}
+            {activeTab !== 'breach' && (
+              <div className="pt-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 border-t-2 sm:border-t-4 border-[#121212]">
               {/* Quick test pills (Binary: rounded-full) */}
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 <span className="font-bold uppercase tracking-wider text-[#121212] mr-1">
@@ -319,6 +334,7 @@ export const ScanInput = ({ onScan, isScanning, externalDemo }: ScanInputProps) 
                 {!isScanning && <ArrowRight className="w-4 h-4 text-white" strokeWidth={3} />}
               </button>
             </div>
+            )}
           </form>
         </Tabs>
       </div>

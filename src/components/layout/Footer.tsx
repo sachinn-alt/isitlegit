@@ -41,6 +41,16 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/gym" className="text-white hover:text-[#F0C020] transition-colors">
+                  → Scam Gym Simulator
+                </Link>
+              </li>
+              <li>
+                <Link to="/emergency" className="text-white hover:text-[#D02020] transition-colors">
+                  → Bank Fraud Hotlines
+                </Link>
+              </li>
+              <li>
                 <Link to="/tips" className="text-white hover:text-[#F0C020] transition-colors">
                   → Scam Defense Guide
                 </Link>
