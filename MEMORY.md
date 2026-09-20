@@ -152,7 +152,11 @@ The scoring engine (`src/engine/scoring.ts`) computes a weighted risk score from
   - **Type**: `200 (Rewrite)`
 - **Manual Zip Deploy**: Run `python scripts/package_deploy.py` to create a Unix-standard `isitlegit-deploy.zip` with forward slashes `/`.
 
-### 2. GitHub Pages & CI (Live & Active)
+### 2. Vercel (1-Click Deployment)
+- **Configuration**: Pre-configured in [`vercel.json`](vercel.json) with Vite framework detection, `npm run build`, and SPA URL rewrites.
+- **Instant Deploy Link**: Import [`sachinn-alt/isitlegit`](https://github.com/sachinn-alt/isitlegit) directly on [vercel.com/new](https://vercel.com/new).
+
+### 3. GitHub Pages & CI (Live & Active)
 - **Live URL**: [`https://sachinn-alt.github.io/isitlegit/`](https://sachinn-alt.github.io/isitlegit/)
 - **Automated Workflow**: [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) automatically runs unit tests and deploys `dist/` on every push to `main`.
 - **Base Path**: Configured with `base: './'` in [`vite.config.ts`](vite.config.ts) for portable asset resolution across subpaths and custom domains.
