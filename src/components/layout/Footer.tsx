@@ -11,7 +11,7 @@ import {
   Code2,
 } from 'lucide-react';
 import { GithubIcon } from '@/components/common/GithubIcon';
-import { LinkedinIcon, XIcon } from '@/components/common/SocialIcons';
+import { LinkedinIcon, InstagramIcon } from '@/components/common/SocialIcons';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -179,7 +179,7 @@ export const Footer = () => {
               {/* LinkedIn Profile */}
               <li>
                 <a
-                  href="https://www.linkedin.com/in/sachin-kumar-singh"
+                  href="https://www.linkedin.com/in/heyitsachin/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[#E0E0E0] hover:text-[#64B5F6] transition-colors group"
@@ -187,23 +187,23 @@ export const Footer = () => {
                   <div className="p-1 bg-[#2A2D32] group-hover:bg-[#1040C0] group-hover:text-white transition-colors">
                     <LinkedinIcon className="w-3.5 h-3.5" />
                   </div>
-                  <span>LinkedIn Profile</span>
+                  <span>LinkedIn: in/heyitsachin</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
                 </a>
               </li>
 
-              {/* Twitter / X */}
+              {/* Instagram */}
               <li>
                 <a
-                  href="https://x.com/sachinn_alt"
+                  href="https://www.instagram.com/sac._.hinn/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#E0E0E0] hover:text-white transition-colors group"
+                  className="inline-flex items-center gap-2 text-[#E0E0E0] hover:text-[#E1306C] transition-colors group"
                 >
-                  <div className="p-1 bg-[#2A2D32] group-hover:bg-white group-hover:text-[#121212] transition-colors">
-                    <XIcon className="w-3.5 h-3.5" />
+                  <div className="p-1 bg-[#2A2D32] group-hover:bg-[#E1306C] group-hover:text-white transition-colors">
+                    <InstagramIcon className="w-3.5 h-3.5" />
                   </div>
-                  <span>Twitter / X: @sachinn_alt</span>
+                  <span>Instagram: @sac._.hinn</span>
                   <ExternalLink className="w-3 h-3 opacity-60" />
                 </a>
               </li>
@@ -315,7 +315,7 @@ export const Footer = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/sachin-kumar-singh"
+              href="https://www.linkedin.com/in/heyitsachin/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 text-white hover:text-[#64B5F6] transition-colors"
@@ -325,13 +325,13 @@ export const Footer = () => {
             </a>
 
             <a
-              href="https://x.com/sachinn_alt"
+              href="https://www.instagram.com/sac._.hinn/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-white hover:text-[#F0C020] transition-colors"
+              className="inline-flex items-center gap-1.5 text-white hover:text-[#E1306C] transition-colors"
             >
-              <XIcon className="w-3.5 h-3.5" />
-              <span>X (Twitter)</span>
+              <InstagramIcon className="w-3.5 h-3.5" />
+              <span>Instagram</span>
             </a>
 
             <a
