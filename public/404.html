@@ -1,20 +1,28 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IsItLegit — Instant Fact, Scam & Link Checker</title>
-    <meta
-      name="description"
-      content="Verify suspicious links, phishing emails, SMS alerts, and screenshots instantly. Differentiates genuine security warnings and bank OTPs from scams with zero server logging."
-    />
-    <meta name="theme-color" content="#020617" />
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>IsItLegit — Redirecting...</title>
+    <script>
+      // Single Page Application routing for GitHub Pages
+      // Redirects non-root requests to the HashRouter SPA route
+      (function () {
+        var path = window.location.pathname;
+        var repo = '/isitlegit';
+        if (path.indexOf(repo) === 0) {
+          path = path.slice(repo.length);
+        }
+        if (!path || path === '/') {
+          path = '';
+        }
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+        var newUrl = repo + '/#' + path + search + hash;
+        window.location.replace(newUrl);
+      })();
+    </script>
   </head>
-  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-500/30 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body style="background-color: #F0F0F0; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    <p style="font-weight: bold; text-transform: uppercase;">Redirecting to IsItLegit Console...</p>
   </body>
 </html>
