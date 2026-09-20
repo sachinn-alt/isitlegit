@@ -1,14 +1,30 @@
 import jsQR from 'jsqr';
 import { Finding } from '@/types';
+import { checkFileConfidentiality, checkTextConfidentiality } from '@/utils/confidentiality';
 
 export interface ImageAnalysisOutput {
   qrDecodedText?: string;
   findings: Finding[];
   hasQrCode: boolean;
+  isConfidentialBlocked?: boolean;
 }
 
 export async function analyzeImageFile(file: File): Promise<ImageAnalysisOutput> {
   const findings: Finding[] = [];
+
+  // Guard: Pre-scan filename check
+  const fileCheck = checkFileConfidentiality(file);
+  if (fileCheck.isBlocked) {
+    findings.push({
+      id: 'confidential-photo-blocked',
+      title: 'Confidential Document Upload Prevented',
+      description: fileCheck.reason || 'The uploaded file matches keywords associated with personal identification or sensitive financial documents.',
+      severity: 'critical',
+      category: 'visual',
+      whySuspicious: 'Sensitive identification documents should never be submitted to web tools without local redaction.',
+    });
+    return { findings, hasQrCode: false, isConfidentialBlocked: true };
+  }
 
   return new Promise((resolve) => {
     const reader = new FileReader();
@@ -32,6 +48,18 @@ export async function analyzeImageFile(file: File): Promise<ImageAnalysisOutput>
         });
 
         if (code && code.data) {
+          const textCheck = checkTextConfidentiality(code.data);
+          if (textCheck.isBlocked) {
+            findings.push({
+              id: 'qr-confidential-blocked',
+              title: 'Confidential Identification Pattern Detected in QR',
+              description: textCheck.reason || 'The decoded QR payload matches a confidential pattern (credit card or national ID).',
+              severity: 'critical',
+              category: 'visual',
+              whySuspicious: 'Sensitive identification documents or raw card numbers should not be encoded into public QR codes.',
+            });
+          }
+
           findings.push({
             id: 'qr-code-extracted',
             title: 'Embedded QR Code Decoded Successfully',
