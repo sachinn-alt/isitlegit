@@ -167,7 +167,14 @@ The scoring engine (`src/engine/scoring.ts`) computes a weighted risk score from
 
 ---
 
-## 🤖 Guidelines for AI Agents & Pair Programmers
+## 🎨 UI Architecture — Linear Midnight Precision Instrument
+
+- **Color Palette**: Void (`#08090a`), Carbon (`#0f1011`), Obsidian (`#161718`), Graphite (`#23252a`), Smoke (`#383b3f`), Fog (`#8a8f98`), Mist (`#d0d6e0`), Paper (`#ffffff`).
+- **Chromatic Action**: Sole primary action button uses **Acid Lime (`#e4f222`)** with dark text (`#08090a`), 6px radius, and inset highlight.
+- **Elevation & Borders**: Hairline-thin 1px borders (`#23252a`) without artificial heavy shadows or blurry colorful glows.
+- **Radii Vocabulary**: Strict 3-radii rule: Cards (12px), Buttons/Inputs (6px), Badges (4px), Pills (9999px).
+- **Typography**: Inter Variable with tight tracking (`-0.022em` on headings) and OpenType features (`"cv01", "ss03", "zero"`).
+- **Zero AI Slop**: No decorative rainbow gradients, no blurry neon backdrop blobs, no techno-clichés. Pure precision instrument aesthetics.
 
 When working on this codebase:
 1. **Preserve Privacy Invariants**: NEVER introduce code that transmits user input (URLs, text, email bodies) to external logging or analytics services. All core intelligence must remain functional in-browser.
