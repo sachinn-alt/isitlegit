@@ -32,16 +32,11 @@ export const VerdictCard = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4 }}
-      className={`relative overflow-hidden rounded-3xl border ${colors.border} ${colors.bg} p-6 sm:p-8 backdrop-blur-xl shadow-2xl`}
+      transition={{ duration: 0.2 }}
+      className="relative overflow-hidden rounded-[12px] bg-[#0f1011] border border-[#23252a] p-6 sm:p-7 shadow-[rgba(0,0,0,0.4)_0px_2px_4px_0px]"
     >
-      {/* Background glow radial */}
-      <div
-        className="absolute -right-20 -top-20 w-80 h-80 rounded-full blur-3xl pointer-events-none -z-10"
-        style={{ background: colors.glow }}
-      />
 
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Left: Score Gauge & Icon */}

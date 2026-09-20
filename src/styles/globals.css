@@ -1,82 +1,74 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+@theme {
+  /* Linear Midnight Precision Palette */
+  --color-void: #08090a;
+  --color-carbon: #0f1011;
+  --color-obsidian: #161718;
+  --color-graphite: #23252a;
+  --color-smoke: #383b3f;
+  --color-ash: #62666d;
+  --color-fog: #8a8f98;
+  --color-mist: #d0d6e0;
+  --color-bone: #e5e5e6;
+  --color-paper: #ffffff;
+  --color-acid-lime: #e4f222;
+  --color-pulse-green: #27a644;
+  --color-coral-red: #eb5757;
+  --color-signal-teal: #02b8cc;
+  --color-iris-violet: #6366f1;
+  --color-lavender: #8b5cf6;
 
-    --card: 224 71% 6%;
-    --card-foreground: 213 31% 91%;
+  /* Typography */
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-    --popover: 224 71% 6%;
-    --popover-foreground: 213 31% 91%;
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-96: 96px;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 11%;
+  /* Linear Radii Vocabulary */
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+}
 
-    --secondary: 222 47% 13%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 223 47% 14%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --ring: 217 91% 60%;
-
-    --radius: 0.75rem;
-
-    --safe: 158 64% 48%;
-    --suspicious: 38 92% 50%;
-    --malicious: 350 89% 60%;
-  }
-
-  .light {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 92%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 210 40% 94%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 210 40% 92%;
-    --accent-foreground: 222 47% 11%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214 32% 88%;
-    --input: 214 32% 88%;
-    --ring: 221 83% 53%;
-  }
+:root {
+  --background: 220 11% 4%; /* #08090a */
+  --foreground: 218 27% 85%; /* #d0d6e0 */
+  --card: 220 6% 6%; /* #0f1011 */
+  --card-foreground: 0 0% 100%; /* #ffffff */
+  --popover: 220 6% 6%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 65 91% 54%; /* #e4f222 Acid Lime */
+  --primary-foreground: 220 11% 4%; /* #08090a */
+  --secondary: 220 4% 9%; /* #161718 Obsidian */
+  --secondary-foreground: 218 27% 85%; /* #d0d6e0 */
+  --muted: 220 5% 15%; /* #23252a Graphite */
+  --muted-foreground: 220 7% 57%; /* #8a8f98 Fog */
+  --border: 220 9% 15%; /* #23252a Graphite */
+  --input: 220 9% 15%;
+  --ring: 218 27% 85%; /* #d0d6e0 */
 }
 
 * {
-  border-color: hsl(var(--border));
+  border-color: #23252a;
 }
 
 body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-color: #08090a;
+  color: #d0d6e0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "cv01" on, "ss03" on, "zero" on, "cv02" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -85,22 +77,36 @@ body {
 
 code, kbd, samp, pre {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-feature-settings: "cv01" on, "ss03" on;
 }
 
-/* Tasteful subtle custom scrollbar */
+/* Linear Hairline Card */
+.linear-card {
+  background-color: #0f1011;
+  border: 1px solid #23252a;
+  border-radius: 12px;
+}
+
+.linear-panel {
+  background-color: #161718;
+  border: 1px solid #23252a;
+  border-radius: 6px;
+}
+
+/* Precision Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: #23252a;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: #383b3f;
 }
 
 /* Cybernetic Grid & Glow Backgrounds */

@@ -11,8 +11,7 @@ import { ThreatBreakdown } from '@/components/results/ThreatBreakdown';
 import { SourceList } from '@/components/results/SourceList';
 import { AdvicePanel } from '@/components/results/AdvicePanel';
 import { ShareCard } from '@/components/results/ShareCard';
-import { ShieldCheck, Sparkles, AlertOctagon, ShieldAlert, ArrowLeft, RefreshCw } from 'lucide-react';
-import { Button } from '@/ui/button';
+import { Shield, AlertOctagon, RotateCcw } from 'lucide-react';
 import { ScanType } from '@/types';
 
 export const ScanPage = () => {
@@ -28,7 +27,7 @@ export const ScanPage = () => {
     applicationCategory: 'SecurityApplication',
     operatingSystem: 'All',
     url: 'https://isitlegit.app/',
-    description: 'Zero-click AI and heuristic verification engine detecting phishing links, scams, and authentic security alerts.',
+    description: 'Zero-click security intelligence engine differentiating authentic alerts from phishing scams.',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -41,7 +40,7 @@ export const ScanPage = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-5xl px-4 sm:px-6 py-6 space-y-10">
+    <div className="container mx-auto max-w-[1200px] px-4 sm:px-6 py-10 space-y-12 bg-[#08090a]">
       <SEOHead
         title="IsItLegit — Instant Fact, Scam & Link Checker"
         description="Verify suspicious links, phishing emails, SMS alerts, and screenshots instantly. Differentiates genuine security warnings and bank OTPs from scams with zero server logging."
@@ -51,40 +50,39 @@ export const ScanPage = () => {
 
       <Breadcrumbs items={[]} />
 
-      {/* Editorial High-Taste Hero Header */}
-      <div className="text-center space-y-4 max-w-3xl mx-auto pt-6 pb-2">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.08] bg-slate-900/60 text-xs text-slate-300 font-medium backdrop-blur-md shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>Zero-Click Forensic Engine • 100% Client-Side Privacy</span>
+      {/* Linear Precision Hero Block */}
+      <div className="space-y-3 max-w-2xl mx-auto text-center pt-2 pb-2">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-[#0f1011] border border-[#23252a] text-[11px] font-mono text-[#8a8f98]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#27a644]" />
+          <span>CYBERNETIC PAYLOAD INSPECTION</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-          Verify before you tap.{' '}
-          <span className="block bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
-            Unmask scams. Confirm real alerts.
-          </span>
+        <h1 className="text-[36px] sm:text-[48px] lg:text-[56px] font-[510] tracking-[-0.022em] text-[#ffffff] leading-[1.05]">
+          Inspect threats before you click.
         </h1>
 
-        <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          Inspect suspicious URLs, phishing emails, smishing texts, and OTP codes without clicking them. Powered by on-device homoglyph heuristics, Shannon entropy analysis, and official bank 2FA validation.
+        <p className="text-[15px] sm:text-[16px] text-[#8a8f98] leading-[1.5] max-w-xl mx-auto">
+          Dissect deceptive links, phishing emails, smishing texts, and OTP alerts. Run homoglyph forensics, entropy analysis, and bank legitimacy validation on-device.
         </p>
       </div>
 
-      {/* Scan Input Console */}
+      {/* Precision Input Console */}
       <ScanInput 
         onScan={analyze} 
         isScanning={isScanning} 
         externalDemo={externalDemo} 
       />
 
-      {/* Scanning Progress Monitor */}
+      {/* Scanning Progress Bar */}
       {isScanning && (
-        <ScanProgress stage={progressStage} percent={progressPercent} />
+        <div className="max-w-[840px] mx-auto">
+          <ScanProgress stage={progressStage} percent={progressPercent} />
+        </div>
       )}
 
       {/* Error Message */}
       {error && (
-        <div className="max-w-xl mx-auto p-4 rounded-2xl border border-rose-500/30 bg-rose-500/10 text-rose-300 text-xs text-center flex items-center justify-center gap-2">
+        <div className="max-w-[840px] mx-auto p-3 rounded-[6px] border border-[#eb5757]/40 bg-[#eb5757]/10 text-[#eb5757] text-[13px] text-center flex items-center justify-center gap-2">
           <AlertOctagon className="w-4 h-4 shrink-0" />
           <span>{error}</span>
         </div>
@@ -92,25 +90,22 @@ export const ScanPage = () => {
 
       {/* Results View */}
       {result && !isScanning ? (
-        <div className="space-y-8 pt-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h2 className="text-xl font-bold text-white flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              <span>Inspection Forensic Dossier</span>
+        <div className="space-y-6 max-w-[840px] mx-auto pt-2">
+          <div className="flex items-center justify-between border-b border-[#23252a] pb-3">
+            <h2 className="text-[17px] font-[510] text-[#ffffff] flex items-center gap-2 tracking-[-0.012em]">
+              <Shield className="w-4 h-4 text-[#ffffff]" />
+              <span>Inspection Dossier</span>
             </h2>
 
-            <Button
-              variant="outline"
-              size="sm"
+            <button
               onClick={reset}
-              className="text-xs text-slate-300 hover:text-white border-slate-700 bg-slate-900/60 rounded-xl gap-1.5"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[6px] bg-[#0f1011] hover:bg-[#161718] border border-[#23252a] text-[12px] text-[#d0d6e0] transition-colors cursor-pointer"
             >
-              <RefreshCw className="w-3.5 h-3.5" />
-              <span>Scan Another Item</span>
-            </Button>
+              <RotateCcw className="w-3 h-3 text-[#8a8f98]" />
+              <span>New Scan</span>
+            </button>
           </div>
 
-          {/* Hero Verdict Indicator */}
           <VerdictCard
             result={result}
             onBookmark={() => setIsBookmarked(!isBookmarked)}
@@ -118,23 +113,18 @@ export const ScanPage = () => {
             onShare={() => setIsShareOpen(true)}
           />
 
-          {/* Actionable Advice Panel */}
           <AdvicePanel
             advice={result.advice}
             safeFollowUp={result.safeFollowUp}
             isLegitimate={result.verdictCategory === 'LEGITIMATE'}
           />
 
-          {/* Findings & Diagnostics */}
           <FindingsPanel findings={result.findings} />
 
-          {/* Multi-Vector Threat Breakdown */}
           <ThreatBreakdown breakdown={result.threatBreakdown} />
 
-          {/* Intelligence Sources */}
           <SourceList sources={result.sources} />
 
-          {/* Share Dialog */}
           <ShareCard
             result={result}
             isOpen={isShareOpen}
@@ -142,7 +132,6 @@ export const ScanPage = () => {
           />
         </div>
       ) : (
-        /* Feature Showcase (Displayed when idle) */
         !isScanning && <FeatureShowcase onSelectSample={handleSelectSample} />
       )}
     </div>
